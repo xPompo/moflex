@@ -3,6 +3,9 @@
   height: 5rem;
   display: flex;
   align-items: center;
+  .container {
+    position: relative;
+  }
   //----  Logo part  ----//
   .logo__brand {
     color: $white;
@@ -24,14 +27,20 @@
       }
     }
   }
-  //----  Button Sign part  ----//
+  //----  Button__Sign_in part  ----//
   .btn__main {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-  //----  Button Sign part  ----//
+  //----  menu__icon part  ----//
   .navbar__menu_icon {
-    color: red;
+    position: absolute;
+    font-size: 1.6rem;
+    color: white;
+    top: 0;
+    left: 90%;
+    transform: translate(0, -10%);
+    display: none;
   }
 }

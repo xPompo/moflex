@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import menuIcon from "../../../public/assets/icons/menu.png";
+import * as HiIcons from "react-icons/hi";
 
 function Header() {
   const NAV_DATA = [
@@ -30,9 +30,9 @@ function Header() {
               <button className="btn__main_all">Sign In</button>
             </div>
           </div>
-        </div>
-        <div className="navbar__menu_icon">
-          <img src={menuIcon} alt="icon" />
+          <div className="navbar__menu_icon">
+            <HiIcons.HiMenuAlt3 />
+          </div>
         </div>
       </div>
     </>

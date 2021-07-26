@@ -1,0 +1,41 @@
+.banner__main {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+  .container .row .col {
+    color: $white;
+    //---- tittle  ----//
+    .tittle {
+      font-weight: bold;
+      font-size: 4rem;
+    }
+    //---- description  ----//
+    .overview {
+      font-size: 1.2rem;
+      line-height: 1.5em;
+      letter-spacing: 0.04em;
+      width: 65%;
+    }
+    //---- date  ----//
+    .release_date {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+  //---- poster img  ----//
+  .banner__main_poster {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translateX(-100%);
+    z-index: -1;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}

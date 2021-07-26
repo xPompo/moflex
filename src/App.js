@@ -1,10 +1,11 @@
 import React from "react";
-import Header from "./Components/Home/Header";
+
+import Home from "./Pages/Home/Home";
 
 function App() {
   return (
     <>
-      <Header />{" "}
+      <Home />
     </>
   );
 }
