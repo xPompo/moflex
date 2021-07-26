@@ -1,0 +1,49 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
+
+.btn__main_all {
+  position: relative;
+  color: $black;
+  font-weight: bold;
+
+  overflow: hidden;
+  background-color: $yellow;
+  padding: 0.5em 2em;
+  border-radius: 0.1rem;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150%;
+    height: 200%;
+    background-color: $white;
+    transform: translate(-110%, -20%) skew(30deg);
+  }
+  &:hover:before {
+    background-color: transparent;
+    transform: translate(0%, -20%) skew(30deg);
+    transition: all 0.7s ease-out;
+  }
+}

@@ -1,5 +1,12 @@
+import React from "react";
+import Header from "./Components/Home/Header";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <Header />{" "}
+    </>
+  );
 }
 
 export default App;

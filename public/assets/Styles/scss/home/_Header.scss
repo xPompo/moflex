@@ -1,0 +1,37 @@
+.Header__main {
+  background-color: $black;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  //----  Logo part  ----//
+  .logo__brand {
+    color: $white;
+  }
+  //----  nav__List part  ----//
+  .nav__list {
+    display: flex;
+    align-items: center;
+
+    .row {
+      margin: 0 auto;
+      padding: 0;
+      width: 80%;
+      text-align: center;
+      .nav__list_item {
+        a {
+          color: $white;
+        }
+      }
+    }
+  }
+  //----  Button Sign part  ----//
+  .btn__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  //----  Button Sign part  ----//
+  .navbar__menu_icon {
+    color: red;
+  }
+}
