@@ -18,16 +18,36 @@
       letter-spacing: 0.04em;
       width: 65%;
     }
-    //---- date  ----//
-    .release_date {
-      font-size: 1.2rem;
-      font-weight: bold;
+    .date__rate {
+      //---- date  ----//
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .release_date {
+        font-size: 1.2rem;
+        letter-spacing: 0.2em;
+      }
+      //---- vote  ----//
+      .vote_average {
+        color: $yellow;
+        background-color: rgba($color: #000000, $alpha: 0.8);
+        padding: 0.5em 1em;
+        border-radius: 0.25em;
+        margin-right: 2em;
+        font-size: 1rem;
+        font-weight: bold;
+        span {
+          color: $white;
+          font-size: 1.3rem;
+          font-weight: normal;
+        }
+      }
     }
   }
   //---- poster img  ----//
   .banner__main_poster {
     position: absolute;
-
+    filter: brightness(0.8);
     top: 0;
     left: 100%;
     transform: translateX(-100%);
@@ -39,6 +59,10 @@
     width: 100%;
     height: 100%;
   }
+
+  .btn__main_0 {
+    padding: 0.8em 2em;
+  }
 }
 
 //----  swiper nav icons ----//
@@ -47,14 +71,13 @@
   top: 90% !important;
 }
 
-.swiper-button-next:after {
+.swiper-button-next::after {
   content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
-  background-color: transparent;
+  content: "";
   transform: scale(0.4) translateX(-100%);
 }
-.swiper-button-prev:after {
-  content: url("../../../../../src/assets/icons/L-arrow.svg") !important;
-
-  background-color: black;
-  transform: scale(0.4) translateX(100%);
+.swiper-button-prev::after {
+  content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
+  content: "";
+  transform: scale(0.4) translateX(100%) rotateY(180deg);
 }

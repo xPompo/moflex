@@ -27,7 +27,7 @@ function Header() {
               </ul>
             </div>
             <div className="btn__main col-auto ">
-              <button className="btn__main_all">Sign In</button>
+              <button className="btn__main_0">Sign In</button>
             </div>
           </div>
           <div className="navbar__menu_icon">

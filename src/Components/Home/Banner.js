@@ -61,14 +61,20 @@ function Banner({ fetchTrending }) {
                             window.innerWidth > 400 ? 150 : 50
                           )}
                         </p>
-                        <p className="release_date">{item?.release_date}</p>
+                        <div className="date__rate">
+                          <p className="vote_average">
+                            <span>10 / </span>
+                            {item?.vote_average}
+                          </p>
+                          <p className="release_date">{item?.release_date}</p>
+                        </div>
                       </div>
                     </div>
                     <div className="row  ">
-                      <button className="col-md-3 col-sm-12 my-2 btn__main_all">
+                      <button className="col-md-3 col-sm-12 my-2 btn__main_0">
                         Play
                       </button>
-                      <button className="col-md-3 col-sm-12 my-2 btn__main_all">
+                      <button className="col-md-3 col-sm-12 my-2 btn__main_0">
                         Add to favourit
                       </button>
                     </div>
