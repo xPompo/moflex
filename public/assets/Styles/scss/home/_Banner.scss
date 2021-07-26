@@ -27,6 +27,7 @@
   //---- poster img  ----//
   .banner__main_poster {
     position: absolute;
+
     top: 0;
     left: 100%;
     transform: translateX(-100%);
@@ -38,4 +39,22 @@
     width: 100%;
     height: 100%;
   }
+}
+
+//----  swiper nav icons ----//
+.swiper-button-next,
+.swiper-button-prev {
+  top: 90% !important;
+}
+
+.swiper-button-next:after {
+  content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
+  background-color: transparent;
+  transform: scale(0.4) translateX(-100%);
+}
+.swiper-button-prev:after {
+  content: url("../../../../../src/assets/icons/L-arrow.svg") !important;
+
+  background-color: black;
+  transform: scale(0.4) translateX(100%);
 }

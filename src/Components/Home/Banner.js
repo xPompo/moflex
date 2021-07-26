@@ -56,14 +56,19 @@ function Banner({ fetchTrending }) {
                           {item?.title || item?.name || item?.original_title}
                         </h1>
                         <p className="overview">
-                          {truncate(item?.overview, 150)}
+                          {truncate(
+                            item?.overview,
+                            window.innerWidth > 400 ? 150 : 50
+                          )}
                         </p>
                         <p className="release_date">{item?.release_date}</p>
                       </div>
                     </div>
-                    <div className="row ">
-                      <button className="col-3 btn__main_all">Play</button>
-                      <button className="col-3 btn__main_all">
+                    <div className="row  ">
+                      <button className="col-md-3 col-sm-12 my-2 btn__main_all">
+                        Play
+                      </button>
+                      <button className="col-md-3 col-sm-12 my-2 btn__main_all">
                         Add to favourit
                       </button>
                     </div>
