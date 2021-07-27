@@ -74,9 +74,6 @@ function Banner({ fetchTrending }) {
                       <button className="col-md-3 col-sm-12 my-2 btn__main_0">
                         Play
                       </button>
-                      <button className="col-md-3 col-sm-12 my-2 btn__main_0">
-                        Add to favourit
-                      </button>
                     </div>
                   </div>
                 </div>

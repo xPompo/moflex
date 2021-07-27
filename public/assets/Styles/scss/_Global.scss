@@ -21,16 +21,15 @@ button {
   border: none;
 }
 
-.btn__main_0 {
+.btn__main_0,
+.btn__main_1 {
   position: relative;
   color: $black;
   font-weight: bold;
   margin: 0 1em;
   overflow: hidden;
-  background-color: $yellow;
   padding: 0.5em 2em;
   border-radius: 0.1rem;
-
   &:before {
     content: "";
     position: absolute;
@@ -46,4 +45,23 @@ button {
     transform: translate(0%, -20%) skew(30deg);
     transition: all 0.7s ease-out;
   }
+}
+.btn__main_1 {
+  background-color: rgba($white, $alpha: 0.6);
+}
+.btn__main_0 {
+  background-color: $main;
+}
+
+.subtittle {
+  color: $main;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+}
+.tittle {
+  color: $white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3em;
 }

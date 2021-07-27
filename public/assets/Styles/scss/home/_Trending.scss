@@ -1,0 +1,90 @@
+.trending__main {
+  background-color: $black;
+  padding: 5em 0;
+  .swiper-slide {
+    // transition: all 0.5s ease-out;
+    position: relative;
+    height: 80vh;
+    .wrapper {
+      width: 100%;
+      //---- poster img  ----//
+      .trending__main_bg {
+        height: 60vh;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        object-fit: cover;
+        background-repeat: no-repeat;
+        border-radius: 0.25em;
+        z-index: -1;
+      }
+      //---- overlay BG  ----//
+      .overlay {
+        position: absolute;
+        display: none; //==>  Hover  <==//
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-end;
+        padding-bottom: 2em;
+        background-color: rgba($black, $alpha: 0.6);
+        height: 60vh;
+        width: 100%;
+      }
+      //---- poster Tittle  ----//
+      .poster__tittle {
+        position: absolute;
+        top: 0;
+        margin-top: 2em;
+        padding: 0 1.5em;
+        font-size: 1.8rem;
+        text-align: center;
+        color: $white;
+      }
+      .poster__date_rate {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        //---- poster Date  ----//
+        .poster__date {
+          color: $white;
+        }
+        //---- poster Rate  ----//
+        .poster__rate {
+          color: $main;
+          background-color: rgba($black, $alpha: 0.8);
+          padding: 0.5em 1em;
+          border-radius: 0.25em;
+          margin-left: 2em;
+          font-size: 0.7rem;
+          font-weight: bold;
+          span {
+            color: $white;
+            font-size: 0.9rem;
+            font-weight: normal;
+          }
+        }
+      }
+    }
+  }
+
+  //---- Hover  ----//
+
+  .swiper-slide:hover {
+    .overlay {
+      display: flex;
+    }
+  }
+  //---- Swiper pagination  ----//
+  .swiper-pagination {
+    .swiper-pagination-bullet {
+      background-color: $white;
+      opacity: 1;
+    }
+    .swiper-pagination-bullet-active {
+      width: 16px;
+      border-radius: 30%;
+      background-color: $main;
+    }
+  }
+}

@@ -29,7 +29,7 @@
       }
       //---- vote  ----//
       .vote_average {
-        color: $yellow;
+        color: $main;
         background-color: rgba($color: #000000, $alpha: 0.8);
         padding: 0.5em 1em;
         border-radius: 0.25em;
@@ -59,25 +59,34 @@
     width: 100%;
     height: 100%;
   }
-
-  .btn__main_0 {
+  //---- Buttons   ----//
+  .btn__main_0,
+  .btn__main_1 {
     padding: 0.8em 2em;
+    transition: all 0.3s ease-out;
+  }
+  .fav {
+    background: rgba(231, 31, 31, 0.6);
+    color: $white;
+    transition: all 0.3s ease-out;
   }
 }
 
 //----  swiper nav icons ----//
-.swiper-button-next,
-.swiper-button-prev {
-  top: 90% !important;
-}
+.mySwiper {
+  .swiper-button-next,
+  .swiper-button-prev {
+    top: 90% !important;
+  }
 
-.swiper-button-next::after {
-  content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
-  content: "";
-  transform: scale(0.4) translateX(-100%);
-}
-.swiper-button-prev::after {
-  content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
-  content: "";
-  transform: scale(0.4) translateX(100%) rotateY(180deg);
+  .swiper-button-next::after {
+    content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
+    content: "";
+    transform: scale(0.4) translateX(-100%);
+  }
+  .swiper-button-prev::after {
+    content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
+    content: "";
+    transform: scale(0.4) translateX(100%) rotateY(180deg);
+  }
 }
