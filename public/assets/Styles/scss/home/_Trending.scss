@@ -1,8 +1,8 @@
 .trending__main {
-  background-color: $black;
+  background-color: $blackBlack;
   padding: 5em 0;
   .swiper-slide {
-    // transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
     position: relative;
     height: 80vh;
     .wrapper {
@@ -21,7 +21,9 @@
       //---- overlay BG  ----//
       .overlay {
         position: absolute;
-        display: none; //==>  Hover  <==//
+        display: flex; //==>  Hover  <==//
+        opacity: 0;
+        transform: translateY(-50%);
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
@@ -29,6 +31,7 @@
         background-color: rgba($black, $alpha: 0.6);
         height: 60vh;
         width: 100%;
+        transition: all 0.3s ease-out;
       }
       //---- poster Tittle  ----//
       .poster__tittle {
@@ -39,6 +42,10 @@
         font-size: 1.8rem;
         text-align: center;
         color: $white;
+      }
+      .poster__wrappper_footer {
+        transform: translateY(80%);
+        transition: all 0.5s ease-out;
       }
       .poster__date_rate {
         display: flex;
@@ -72,7 +79,11 @@
 
   .swiper-slide:hover {
     .overlay {
-      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .poster__wrappper_footer {
+      transform: translateY(0);
     }
   }
   //---- Swiper pagination  ----//

@@ -21,6 +21,8 @@ function Trending({ fethchTrendingMovies }) {
     fetchData();
   }, [fethchTrendingMovies]);
 
+  const watchClickHandler = () => {};
+
   return (
     <div className="trending__main">
       <div className="container">
@@ -65,16 +67,26 @@ function Trending({ fethchTrendingMovies }) {
                     <div className="wrapper">
                       <div className="overlay">
                         <h1 className="poster__tittle">
-                          {item?.tittle || item?.original_title || item?.name}
+                          {item?.original_title || item?.tittle || item?.name}
                         </h1>
-                        <div className="poster__date_rate">
-                          <p className="poster__date"> {item?.release_date}</p>
-                          <p className="poster__rate">
-                            <span>10 / </span>
-                            {item?.vote_average}
-                          </p>
+                        <div className="poster__wrappper_footer">
+                          <div className="poster__date_rate">
+                            <p className="poster__date">
+                              {" "}
+                              {item?.release_date}
+                            </p>
+                            <p className="poster__rate">
+                              <span>10 / </span>
+                              {item?.vote_average}
+                            </p>
+                          </div>
+                          <button
+                            onClick={watchClickHandler}
+                            className="btn__main_0 "
+                          >
+                            Discover More
+                          </button>
                         </div>
-                        <button className="btn__main_0 ">Watch Now</button>
                       </div>
                       <img
                         className="trending__main_bg"
