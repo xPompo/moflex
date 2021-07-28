@@ -20,7 +20,7 @@ button {
   background-color: transparent;
   border: none;
 }
-
+//---- All btns ----//
 .btn__main_0,
 .btn__main_1 {
   position: relative;
@@ -52,16 +52,22 @@ button {
 .btn__main_0 {
   background-color: $main;
 }
-
-.subtittle {
+//---- subtittle for Trending section ----//
+.subtittle_small {
   color: $main;
   font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
 }
-.tittle {
+//---- tittle for Trending section ----//
+.tittle__small {
   color: $white;
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 3em;
+}
+
+.link {
+  color: $white;
+  z-index: 999;
 }

@@ -3,13 +3,15 @@ import axios from "../../axios/axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { indAction } from "../../ReduxStore/store";
 import SwiperCore, { Autoplay, Pagination } from "swiper/core";
 
 SwiperCore.use([Autoplay, Pagination]);
-
 function Trending({ fethchTrendingMovies }) {
   const [topMovies, setTopMovies] = useState([]);
+  const dispatch = useDispatch();
 
   const baseImgURL = "https://image.tmdb.org/t/p/original";
   useEffect(() => {
@@ -21,21 +23,24 @@ function Trending({ fethchTrendingMovies }) {
     fetchData();
   }, [fethchTrendingMovies]);
 
-  const watchClickHandler = () => {};
+  const watchClickHandler = (e) => {
+    const index = e.target.attributes.getNamedItem("data-ind").value;
+    dispatch(indAction.getAllData(topMovies[index]));
+  };
 
   return (
     <div className="trending__main">
       <div className="container">
         <div className="row">
-          <p className="subtittle">Live Streaming</p>
-          <h1 className="tittle">Top Rated Movies</h1>
+          <p className="subtittle__small">Live Streaming</p>
+          <h1 className="tittle__small">Top Rated Movies</h1>
         </div>
         <div className="row">
           <Swiper
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
+            // autoplay={{
+            //   delay: 2500,
+            //   disableOnInteraction: false,
+            // }}
             speed={800}
             slidesPerView={1}
             centeredSlides={true}
@@ -80,12 +85,15 @@ function Trending({ fethchTrendingMovies }) {
                               {item?.vote_average}
                             </p>
                           </div>
-                          <button
-                            onClick={watchClickHandler}
-                            className="btn__main_0 "
-                          >
-                            Discover More
-                          </button>
+                          <Link to="/movieDetails">
+                            <button
+                              onClick={watchClickHandler}
+                              data-ind={index}
+                              className="btn__main_0 "
+                            >
+                              Discover More
+                            </button>
+                          </Link>
                         </div>
                       </div>
                       <img
@@ -101,6 +109,20 @@ function Trending({ fethchTrendingMovies }) {
           </Swiper>
         </div>
       </div>
+      {/* {topMoviesDetails && (
+        <TopMoviesDetails
+          baseImgURL={baseImgURL}
+          pic={topMovies[ind]?.backdrop_path}
+          title={
+            topMovies[ind]?.title ||
+            topMovies[ind]?.original_title ||
+            topMovies[ind]?.name
+          }
+          overView={topMovies[ind]?.overview}
+          date={topMovies[ind]?.release_date}
+          rate={topMovies[ind]?.vote_average}
+        />
+      )} */}
     </div>
   );
 }

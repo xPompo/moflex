@@ -16,7 +16,6 @@ function Banner({ fetchTrending }) {
   useEffect(() => {
     const fetchUrl = async () => {
       const res = await axios(fetchTrending);
-      console.log(res.data.results);
       return setMovieTrend(res.data.results);
     };
     fetchUrl();
