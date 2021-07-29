@@ -39,10 +39,10 @@ function Trending({ fethchTrendingMovies }) {
         </div>
         <div className="row">
           <Swiper
-            // autoplay={{
-            //   delay: 2500,
-            //   disableOnInteraction: false,
-            // }}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
             speed={800}
             slidesPerView={1}
             centeredSlides={true}

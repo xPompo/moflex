@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper.min.css";
+import "swiper/components/pagination/pagination.min.css";
+import SwiperCore, { Autoplay, Pagination } from "swiper/core";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as RiIcons from "react-icons/ri";
 import axios from "../axios/axios";
 import Header from "../Components/Home/Header";
 
+SwiperCore.use([Autoplay, Pagination]);
 function MovieDetails({ fethchTrendingMovies }) {
   const API_KEY = "bc16f35e8e1e9a62fd4a90b95c9d86af";
   const baseImgURL = "https://image.tmdb.org/t/p/original";
@@ -29,17 +34,16 @@ function MovieDetails({ fethchTrendingMovies }) {
     }
   });
 
-  // fetchMovieDetails: `/movie/${ID}?api_key=${API_KEY}&language=en-US`,
-
   //---- fetch date images based on id  ----//
-  const fetchMovieImages = `/movie/335984/images?api_key=${API_KEY}&language=en-US`;
+  const fetchMovieImages = `/movie/${storeID}/images?api_key=${API_KEY}&language=en-US&include_image_language=en`;
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios(fetchMovieImages);
-      console.log(res + "  Hello Im fetching Images Data");
-      return setStoreMovieImages(res.data.results);
-    };
-    fetchData();
+    if (storeID !== null) {
+      axios(fetchMovieImages)
+        .then((res) => {
+          setStoreMovieImages(res.data.backdrops);
+        })
+        .catch((err) => console.log(err + "not good man"));
+    }
   }, [fetchMovieImages]);
   //---- fetch All data Movies  ----//
   useEffect(() => {
@@ -69,15 +73,31 @@ function MovieDetails({ fethchTrendingMovies }) {
           </Link>
           <div className="row mb-4">
             <div className="col-md-8 col-12">
-              <img
-                className="movieDetails__poster"
-                // src={`${baseImgURL}${storeMovieImages?.file_path}`}
-                alt={
-                  storeMovieData[storeIndex]?.original_title ||
-                  storeMovieData[storeIndex]?.title ||
-                  storeMovieData[storeIndex]?.name
-                }
-              />
+              <Swiper
+                autoplay={{
+                  delay: 2500,
+                  disableOnInteraction: false,
+                }}
+                speed={800}
+                slidesPerView={1}
+                spaceBetween={10}
+                pagination={{
+                  dynamicBullets: true,
+                }}
+                className="mySwiper_2"
+              >
+                {storeMovieImages.map((item, index) => {
+                  return (
+                    <SwiperSlide key={index}>
+                      <img
+                        className="movieDetails__poster"
+                        src={`${baseImgURL}${item?.file_path} `}
+                        alt={`imageSlider num + ${index}`}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
             </div>
             <div className="col-md-4 col-12 movieDetails__wrapper">
               <h1 className="movieDetails__tittle">
