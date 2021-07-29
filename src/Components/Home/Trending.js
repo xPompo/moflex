@@ -24,8 +24,10 @@ function Trending({ fethchTrendingMovies }) {
   }, [fethchTrendingMovies]);
 
   const watchClickHandler = (e) => {
-    const index = e.target.attributes.getNamedItem("data-ind").value;
-    dispatch(indAction.getAllData(topMovies[index]));
+    const index = e.target.attributes.getNamedItem("data-index").value;
+    const movieId = e.target.attributes.getNamedItem("data-id").value;
+    dispatch(indAction.getIndex(index));
+    dispatch(indAction.getID(movieId));
   };
 
   return (
@@ -88,7 +90,8 @@ function Trending({ fethchTrendingMovies }) {
                           <Link to="/movieDetails">
                             <button
                               onClick={watchClickHandler}
-                              data-ind={index}
+                              data-index={index}
+                              data-id={item?.id}
                               className="btn__main_0 "
                             >
                               Discover More

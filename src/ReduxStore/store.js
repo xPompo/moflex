@@ -1,12 +1,15 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const init = { AllData: {} };
+const init = { index: null, movieID: null, AllData: {} };
 const indSlice = createSlice({
   name: "index",
   initialState: init,
   reducers: {
-    getAllData(state, action) {
-      state.AllData = action.payload;
+    getIndex(state, action) {
+      state.index = action.payload;
+    },
+    getID(state, action) {
+      state.movieID = action.payload;
     },
   },
 });
