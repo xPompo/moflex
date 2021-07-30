@@ -4,9 +4,10 @@
   //---- img gallary ---//
   .service__gallary {
     .service__gallary_image {
-      background-position: center;
+      background-position: bottom;
       background-size: cover;
       object-fit: cover;
+      width: 100%;
     }
   }
   //--- service text  ----//

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Nav({ onClick }) {
+function Nav({ signInHandler }) {
   const NAV_DATA = [
     { name: "Home", path: "/Home" },
     { name: "About", path: "/About" },
@@ -24,7 +24,7 @@ function Nav({ onClick }) {
           <div className="col-auto">
             <button className="btn__main_1">+Discover</button>
 
-            <button onClick={onClick} className="btn__main_0">
+            <button onClick={signInHandler} className="btn__main_0">
               +Subscribe
             </button>
           </div>

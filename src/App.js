@@ -4,7 +4,6 @@ import MovieDetails from "./Pages/MovieDetails";
 import { Route, Switch, Redirect } from "react-router-dom";
 import requests from "./axios/requests";
 import { useLocation } from "react-router";
-import SignInPage from "./Components/signin/SignInPage";
 
 function App() {
   const location = useLocation();

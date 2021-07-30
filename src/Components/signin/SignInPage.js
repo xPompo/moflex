@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Signin from "./Signin";
 
-function SignInPage({ onClick }) {
+function SignInPage({ SignOut, signupHandler }) {
   return (
     <>
       <div className="signin__page">
-        <div onClick={onClick} className="signin__bg"></div>
-        <Signin />
+        <div onClick={SignOut} className="signin__bg"></div>
+        <Signin signupHandler={signupHandler} />
       </div>
     </>
   );

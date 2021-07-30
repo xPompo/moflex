@@ -4,14 +4,16 @@ import "swiper/swiper.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import axios from "../../axios/axios";
-
+import * as AiIcons from "react-icons/ai";
 import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper/core";
-import Nav from "./Nav";
 
 SwiperCore.use([EffectFade, Navigation, Autoplay]);
 
 function Banner({ fetchTrending }) {
   const [movieTrend, setMovieTrend] = useState([]);
+  const [pushHeart, setPushHeart] = useState([]);
+  const [heartToggle, setHeartToggle] = useState(false);
+  const [ind, setInd] = useState();
   const baseImgURL = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
@@ -24,6 +26,15 @@ function Banner({ fetchTrending }) {
 
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  };
+
+  const heartToggleHandelr = (e) => {
+    const index = e.target.attributes.getNamedItem("data-index").value;
+    setInd(index);
+    setPushHeart(pushHeart.push("<AiIcons.AiTwotoneHeart />"));
+    console.log(pushHeart);
+    setHeartToggle((prevState) => !prevState);
+    console.log(index);
   };
 
   return (
@@ -39,9 +50,9 @@ function Banner({ fetchTrending }) {
         navigation={true}
         className="mySwiper"
       >
-        {movieTrend.map((item) => {
+        {movieTrend.map((item, index) => {
           return (
-            <SwiperSlide key={item.id}>
+            <SwiperSlide key={index}>
               {({ isActive }) => (
                 <div className="banner__main">
                   <img
@@ -52,8 +63,17 @@ function Banner({ fetchTrending }) {
                   <div className="container">
                     <div className="row">
                       <div className="col">
-                        <h1 className="tittle">
+                        <h1
+                          onClick={heartToggleHandelr}
+                          data-index={index}
+                          className="tittle"
+                        >
                           {item?.title || item?.name || item?.original_title}
+                          <span
+                            className={`heart__icon ${heartToggle && "red"}`}
+                          >
+                            <AiIcons.AiTwotoneHeart />
+                          </span>
                         </h1>
                         <p className="overview">
                           {truncate(

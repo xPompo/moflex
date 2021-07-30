@@ -1,9 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as HiIcons from "react-icons/hi";
 import * as AiIcons from "react-icons/ai";
 
-function Header({ onClick }) {
+function Header({ SignIn }) {
   return (
     <>
       <div className="Header__main">
@@ -17,7 +16,7 @@ function Header({ onClick }) {
                 <div className="fav-icon col-auto">
                   <span>1</span> <AiIcons.AiTwotoneHeart />
                 </div>
-                <button onClick={onClick} className="btn__main_0 col-auto">
+                <button onClick={SignIn} className="btn__main_0 col-auto">
                   Sign In
                 </button>
               </div>

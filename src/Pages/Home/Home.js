@@ -5,22 +5,37 @@ import requests from "../../axios/requests";
 import Trending from "../../Components/Home/Trending";
 import Service from "../../Components/Home/Service";
 import SignInPage from "../../Components/signin/SignInPage";
+import SignupPage from "../../Components/signUp/SignupPage";
 
 function Home() {
-  const [isOverlayClicked, setIsOverlayClicked] = useState(false);
-  const overLayClickedHandler = () => {
-    setIsOverlayClicked(false);
+  const [isSignUpPage, setSignUpPage] = useState(false);
+  const [isSignInPage, setSignInPage] = useState(false);
+
+  const Outhandler = () => {
+    setSignInPage(false);
+    setSignUpPage(false);
   };
-  const signinClickedHandler = () => {
-    setIsOverlayClicked(true);
+
+  const signupHandler = () => {
+    setSignUpPage(true);
+    setSignInPage(false);
+  };
+  const signInHandler = () => {
+    setSignInPage(true);
+    setSignUpPage(false);
   };
   return (
     <div>
-      {isOverlayClicked && <SignInPage onClick={overLayClickedHandler} />}
-      <Header onClick={signinClickedHandler} />
+      {isSignUpPage && (
+        <SignupPage signInHandler={signInHandler} SignOut={Outhandler} />
+      )}
+      {isSignInPage && (
+        <SignInPage signupHandler={signupHandler} SignOut={Outhandler} />
+      )}
+      <Header SignIn={signInHandler} />
       <Banner fetchTrending={requests.fetchTrending} />
       <Trending
-        onClick={signinClickedHandler}
+        signInHandler={signInHandler}
         fethchTrendingMovies={requests.fetchTopratedMovies}
       />
       <Service fetchPopularMovies={requests.fetchPopularMovies} />

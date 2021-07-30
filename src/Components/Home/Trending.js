@@ -10,7 +10,7 @@ import SwiperCore, { Autoplay, Pagination } from "swiper/core";
 import Nav from "./Nav";
 
 SwiperCore.use([Autoplay, Pagination]);
-function Trending({ fethchTrendingMovies, onClick }) {
+function Trending({ fethchTrendingMovies, signInHandler }) {
   const [topMovies, setTopMovies] = useState([]);
   const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ function Trending({ fethchTrendingMovies, onClick }) {
   return (
     <div className="trending__main">
       <div className="container">
-        <Nav onClick={onClick} />
+        <Nav signInHandler={signInHandler} />
         <div className="row mt-4">
           <p className="subtittle__small">Live Streaming</p>
           <h1 className="tittle__small">Top Rated Movies</h1>

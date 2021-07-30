@@ -1,23 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import InputForm from "./InputForm";
+import SignUpForm from "./SignUpForm";
 
-function Signin({ signupHandler }) {
+function Signup({ signInHandler }) {
   return (
-    <div className="signin__main">
+    <div className="signUp__main">
       <div className="container">
         <div className="row">
           <h1 className=" col-auto mb-4 sign__toContinue">
-            Sign in to continue
+            Sign up to continue
           </h1>
-          <h1 className=" col mb-4 sign__notAmember">
-            Not a member yet? <span onClick={signupHandler}>Register now</span>
+          <h1 className=" col mb-4 you__member">
+            Have an account? <span onClick={signInHandler}>Login Now</span>
           </h1>
-          <InputForm />
-          <Link className="forgetPass" to="/signUp">
-            Forget Your Password?
-          </Link>
-          <h1 className="OrsignIn">Or sign in with</h1>
+          <SignUpForm />
+          <h1 className="Register">Or Register with</h1>
         </div>
         <div className="row  btn_centered">
           <Link className="col-4 social-link  px-0" to="/">
@@ -35,4 +32,4 @@ function Signin({ signupHandler }) {
   );
 }
 
-export default Signin;
+export default Signup;

@@ -19,14 +19,14 @@ function Service({ fetchPopularMovies }) {
           <div className="col">
             <div className="row service__gallary">
               {storeFetchData.map((item, index) => {
-                if (index < 6) {
+                if (index < 4) {
                   return (
-                    <div key={index} className="col-auto p-1">
+                    <div key={index} className="col-6 p-1">
                       <img
                         className="service__gallary_image"
                         src={`${baseImgURL}${item?.poster_path}`}
                         alt={index + "image"}
-                        width={Math.floor(Math.random() * (180 - 150) + 150)}
+                        // width={Math.floor(Math.random() * (180 - 150) + 150)}
                         height={250}
                       />
                     </div>
