@@ -1,0 +1,70 @@
+.signin__main {
+  background-color: $veryLightWhite;
+  width: 65%;
+  padding: 3em 4em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
+    width: 80%;
+    //----  continue & not a member ----//
+    .sign__toContinue {
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+    .sign__notAmember {
+      display: flex;
+      justify-content: flex-end;
+      font-size: 0.8rem;
+      font-weight: normal;
+
+      span {
+        color: $main;
+        font-weight: bold;
+        margin-left: 1em;
+      }
+    }
+    //----  forget your password ----//
+    .forgetPass {
+      padding: 0;
+      color: $main;
+      font-weight: bold;
+      text-align: center;
+      font-size: 0.9rem;
+      margin: 1em 0 3em 0;
+    }
+    //----  or sign in text ----//
+    .OrsignIn {
+      font-size: 1rem;
+      font-weight: normal;
+      color: $blackBlack;
+      margin-bottom: 2em;
+    }
+    //---- social buttons ----//
+    .btn_centered {
+      justify-content: space-between;
+      .social-link {
+        display: flex;
+        justify-content: center;
+      }
+      .btn__main_0 {
+        width: 90%;
+        font-weight: normal;
+        font-size: 0.9rem;
+        margin: 0;
+        height: 3rem;
+      }
+      .google {
+        background-color: $white;
+      }
+      .twitter {
+        color: $white;
+        background-color: rgb(38, 192, 253);
+      }
+      .facebook {
+        color: $white;
+        background-color: rgb(52, 65, 236);
+      }
+    }
+  }
+}

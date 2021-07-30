@@ -1,0 +1,21 @@
+.inputForm {
+  //----  error  ----//
+  .Err {
+    color: red;
+    font-size: 0.8rem;
+  }
+  //----  Email && password Inputs  ----//
+  .Email__input,
+  .Password__Input {
+    background-color: $white;
+    border: 0.05rem solid $lightWight;
+    margin-bottom: 1em;
+    height: 3rem;
+  }
+  //----  login button  ----//
+  .btn__main_0 {
+    margin: 1em 0 0 0;
+    height: 3rem;
+    color: $white;
+  }
+}

@@ -6,6 +6,7 @@ import "swiper/components/navigation/navigation.min.css";
 import axios from "../../axios/axios";
 
 import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper/core";
+import Nav from "./Nav";
 
 SwiperCore.use([EffectFade, Navigation, Autoplay]);
 
@@ -69,11 +70,11 @@ function Banner({ fetchTrending }) {
                         </div>
                       </div>
                     </div>
-                    <div className="row  ">
+                    {/* <div className="row  ">
                       <button className="col-md-3 col-sm-12 my-2 btn__main_0">
                         Play
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               )}

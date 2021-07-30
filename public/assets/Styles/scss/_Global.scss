@@ -53,11 +53,12 @@ button {
   background-color: $main;
 }
 //---- subtittle for Trending section ----//
-.subtittle_small {
+.subtittle__small {
   color: $main;
-  font-size: 1rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.2em;
+  margin-bottom: 0;
 }
 //---- tittle for Trending section ----//
 .tittle__small {

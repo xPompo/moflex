@@ -5,6 +5,7 @@ const requests = {
   fetchTopratedMovies: `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
   fetchTopratedTVShows: `/tv/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
   fetchLatestMovies: `/movie/latest?api_key=${API_KEY}&language=en-US`,
+  fetchPopularMovies: `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
 };
 
 export default requests;

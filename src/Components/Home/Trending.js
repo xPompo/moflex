@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { indAction } from "../../ReduxStore/store";
 import SwiperCore, { Autoplay, Pagination } from "swiper/core";
+import Nav from "./Nav";
 
 SwiperCore.use([Autoplay, Pagination]);
-function Trending({ fethchTrendingMovies }) {
+function Trending({ fethchTrendingMovies, onClick }) {
   const [topMovies, setTopMovies] = useState([]);
   const dispatch = useDispatch();
 
@@ -33,7 +34,8 @@ function Trending({ fethchTrendingMovies }) {
   return (
     <div className="trending__main">
       <div className="container">
-        <div className="row">
+        <Nav onClick={onClick} />
+        <div className="row mt-4">
           <p className="subtittle__small">Live Streaming</p>
           <h1 className="tittle__small">Top Rated Movies</h1>
         </div>
@@ -54,15 +56,15 @@ function Trending({ fethchTrendingMovies }) {
             breakpoints={{
               640: {
                 slidesPerView: 2,
-                spaceBetween: 20,
+                spaceBetween: 10,
               },
               768: {
                 slidesPerView: 3,
-                spaceBetween: 40,
+                spaceBetween: 10,
               },
               1024: {
                 slidesPerView: 4,
-                spaceBetween: 50,
+                spaceBetween: 10,
               },
             }}
             className="mySwiper_1"
