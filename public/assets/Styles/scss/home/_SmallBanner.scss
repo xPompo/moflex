@@ -1,0 +1,56 @@
+.home__small_banner {
+  background: url("../../../../../src/assets/Img/S_banner.jpg") no-repeat right;
+  background-size: contain;
+  object-fit: contain;
+  padding: 5em 0;
+  .banner__width {
+    width: 60%;
+  }
+  //---  text  ----//
+  .small_banner__text {
+    color: $black;
+    //--- subtittle  ----//
+    .small_banner__subtittle {
+      color: $main;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      p {
+        background-color: $main;
+        width: 3rem;
+        height: 0.1rem;
+        margin: 0 1em 0 0;
+      }
+    }
+    //--- tittle  ----//
+    .small_banner__tittle {
+      font-weight: bold;
+      font-size: 2.5rem;
+    }
+    //--- description  ----//
+    .small_banner__description {
+      font-weight: 1rem;
+    }
+    //--- TV Icons  ----//
+    .small_banner__icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      border: 0.2rem solid $main;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      font-size: 2rem;
+    }
+    //--- small tittle  ----//
+    .small_banner__small_tittle {
+      font-size: 1.5rem;
+    }
+    //--- small subtittle  ----//
+    .small_banner__small_subtittle {
+      font-size: 1rem;
+      width: 80%;
+    }
+  }
+}

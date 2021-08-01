@@ -4,16 +4,13 @@ import "swiper/swiper.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import axios from "../../axios/axios";
-import * as AiIcons from "react-icons/ai";
 import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper/core";
 
 SwiperCore.use([EffectFade, Navigation, Autoplay]);
 
 function Banner({ fetchTrending }) {
   const [movieTrend, setMovieTrend] = useState([]);
-  const [pushHeart, setPushHeart] = useState([]);
-  const [heartToggle, setHeartToggle] = useState(false);
-  const [ind, setInd] = useState();
+
   const baseImgURL = "https://image.tmdb.org/t/p/original";
 
   useEffect(() => {
@@ -28,15 +25,6 @@ function Banner({ fetchTrending }) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
 
-  const heartToggleHandelr = (e) => {
-    const index = e.target.attributes.getNamedItem("data-index").value;
-    setInd(index);
-    setPushHeart(pushHeart.push("<AiIcons.AiTwotoneHeart />"));
-    console.log(pushHeart);
-    setHeartToggle((prevState) => !prevState);
-    console.log(index);
-  };
-
   return (
     <>
       <Swiper
@@ -44,6 +32,7 @@ function Banner({ fetchTrending }) {
           delay: 4500,
           disableOnInteraction: false,
         }}
+        loop={Infinity}
         speed={2000}
         spaceBetween={30}
         effect={"fade"}
@@ -63,17 +52,17 @@ function Banner({ fetchTrending }) {
                   <div className="container">
                     <div className="row">
                       <div className="col">
-                        <h1
-                          onClick={heartToggleHandelr}
-                          data-index={index}
-                          className="tittle"
-                        >
+                        <h1 className="tittle">
                           {item?.title || item?.name || item?.original_title}
-                          <span
-                            className={`heart__icon ${heartToggle && "red"}`}
+
+                          {/* <span
+                            style={{
+                              color: "red",
+                            }}
+                            className="heart__icon"
                           >
                             <AiIcons.AiTwotoneHeart />
-                          </span>
+                          </span> */}
                         </h1>
                         <p className="overview">
                           {truncate(

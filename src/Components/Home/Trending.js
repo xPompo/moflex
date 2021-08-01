@@ -18,7 +18,7 @@ function Trending({ fethchTrendingMovies, signInHandler }) {
   useEffect(() => {
     const fetchData = async () => {
       const res = await axios(fethchTrendingMovies);
-      console.log(res.data.results);
+      // console.log(res.data.results);
       return setTopMovies(res.data.results);
     };
     fetchData();

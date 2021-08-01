@@ -6,6 +6,9 @@ import Trending from "../../Components/Home/Trending";
 import Service from "../../Components/Home/Service";
 import SignInPage from "../../Components/signin/SignInPage";
 import SignupPage from "../../Components/signUp/SignupPage";
+import TopratedMovies from "../../Components/Home/TopratedMovies";
+import SmallBanner from "../../Components/Home/SmallBanner";
+import LatestNews from "../../Components/Home/LatestNews";
 
 function Home() {
   const [isSignUpPage, setSignUpPage] = useState(false);
@@ -39,6 +42,11 @@ function Home() {
         fethchTrendingMovies={requests.fetchTopratedMovies}
       />
       <Service fetchPopularMovies={requests.fetchPopularMovies} />
+      <TopratedMovies
+        fethchTrendingMoviesPage2={requests.fetchTopratedMoviesPage2}
+      />
+      <SmallBanner fetchPopularMovies={requests.fetchPopularMovies} />
+      <LatestNews />
     </div>
   );
 }

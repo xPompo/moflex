@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "../../axios/axios";
 import * as RiIcons from "react-icons/ri";
 
-function Service({ fetchPopularMovies }) {
+function SmallBanner({ fetchPopularMovies }) {
   const baseImgURL = "https://image.tmdb.org/t/p/original";
   const [storeFetchData, setStoreFetchData] = useState([]);
   useEffect(() => {
@@ -13,35 +13,17 @@ function Service({ fetchPopularMovies }) {
     fetchData();
   }, [fetchPopularMovies]);
   return (
-    <div className="home__service">
+    <div className="home__small_banner">
       <div className="container">
-        <div className="row align-items-center mt-4">
-          <div className="col">
-            <div className="row service__gallary">
-              {storeFetchData.map((item, index) => {
-                if (index < 4) {
-                  return (
-                    <div key={index} className="col-6 p-1">
-                      <img
-                        className="service__gallary_image"
-                        src={`${baseImgURL}${item?.poster_path}`}
-                        alt={index + "image"}
-                        height={250}
-                      />
-                    </div>
-                  );
-                }
-              })}
-            </div>
-          </div>
-          <div className="col service__text">
-            <h1 className="service__subtittle m-0">
-              <p></p>OUR SERVICE
+        <div className="banner__width row align-items-center mt-4">
+          <div className="col small_banner__text">
+            <h1 className="small_banner__subtittle m-0">
+              <p></p>ONLINE STREAMING
             </h1>
-            <h1 className="service__tittle">
+            <h1 className="small_banner__tittle">
               Download Your Shows Watch Offline.
             </h1>
-            <p className="service__description">
+            <p className="small_banner__description">
               Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod
               tempor.There are many variations of passages of lorem Ipsum
               available, but the majority have suffered alteration in some
@@ -49,13 +31,15 @@ function Service({ fetchPopularMovies }) {
             </p>
             <div className="row align-items-center mt-4">
               <div className="col-auto">
-                <p className="service__icon">
+                <p className="small_banner__icon">
                   <RiIcons.RiSlideshow2Line />
                 </p>
               </div>
               <div className="col">
-                <h1 className="service__small_tittle">Enjoy on Your TV.</h1>
-                <p className="service__small_subtittle">
+                <h1 className="small_banner__small_tittle">
+                  Enjoy on Your TV.
+                </h1>
+                <p className="small_banner__small_subtittle">
                   Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do
                   eiusmod tempor.
                 </p>
@@ -63,13 +47,15 @@ function Service({ fetchPopularMovies }) {
             </div>
             <div className="row align-items-center mt-4">
               <div className="col-auto">
-                <p className="service__icon">
+                <p className="small_banner__icon">
                   <RiIcons.RiSlideshow4Line />
                 </p>
               </div>
               <div className="col">
-                <h1 className="service__small_tittle">Watch Everywhere.</h1>
-                <p className="service__small_subtittle">
+                <h1 className="small_banner__small_tittle">
+                  Watch Everywhere.
+                </h1>
+                <p className="small_banner__small_subtittle">
                   Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do
                   eiusmod tempor.
                 </p>
@@ -82,4 +68,4 @@ function Service({ fetchPopularMovies }) {
   );
 }
 
-export default Service;
+export default SmallBanner;

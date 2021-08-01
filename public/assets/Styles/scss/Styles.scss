@@ -5,8 +5,11 @@
 @import "home/Header";
 @import "home/Nav";
 @import "home/Service";
+@import "home/SmallBanner";
 @import "home/Banner";
 @import "home/Trending";
+@import "home/TopratedMovies";
+@import "home/LatestNews";
 @import "movieDetails/movieDetails";
 @import "Signin/SignIn";
 @import "Signin/InputForm";
@@ -14,3 +17,4 @@
 @import "SignUp/SignUp";
 @import "SignUp/SignUpForm";
 @import "SignUp/SignUpPage";
+@import "Footer/Footer";

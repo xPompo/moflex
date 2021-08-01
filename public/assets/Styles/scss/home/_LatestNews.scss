@@ -1,0 +1,54 @@
+.homne__latest_news {
+  position: relative;
+  padding: 2.5em 0;
+  .latest_news_Bg,
+  .latest_news_overlay {
+    position: absolute;
+    top: 0%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  //----  BG Dots  ----//
+  .latest_news_Bg {
+    background: url("../../../../../src/assets/Img/halftone-w.png") no-repeat
+      center;
+    object-fit: cover;
+    background-size: cover;
+    z-index: -1;
+    opacity: 0.5;
+  }
+  //----  BG Overkay  ----//
+  .latest_news_overlay {
+    background-color: $main;
+    z-index: -2;
+  }
+  //----  title  ----//
+  .latest_news_title {
+    font-weight: bold;
+    text-transform: capitalize;
+    font-size: 3rem;
+    color: $black;
+  }
+  //----  subtitile  ----//
+  .latest_news_subtitle {
+    color: $black;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+  //----  Input  ----//
+  .latest_news_input {
+    border: none;
+    background-color: rgba($white, 1);
+    box-shadow: 0 0.5em 0.5em 0 rgba($blackBlack, 0.15);
+  }
+  //----button Submit  ----//
+  .btn__main_0 {
+    box-shadow: 0 0.5em 0.5em 0 rgba($blackBlack, 0.15);
+    background-color: $black;
+    color: $white;
+    margin: 0 0 0 1em;
+    border-radius: 0;
+    padding: 1em 2.5em;
+  }
+}
