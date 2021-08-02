@@ -1,0 +1,40 @@
+.searchbar {
+  position: relative;
+  .searchbar__input {
+    width: 100%;
+  }
+  .searchbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $main;
+    background-color: $black;
+    padding: 0.5em 1em;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    transform: translate(-100%, 0);
+    z-index: 9;
+  }
+  .search__list {
+    position: absolute;
+    background-color: $white;
+    color: $black;
+    width: 55%;
+    overflow: hidden;
+    overflow-y: auto;
+    .search__item {
+      padding: 0.2em 1.5em;
+      font-size: 0.8rem;
+      font-weight: bold;
+      transition: all 0.15s ease-out;
+      &:hover {
+        background-color: $main;
+        color: $white;
+      }
+    }
+  }
+}
+::-webkit-scrollbar {
+  display: none;
+}

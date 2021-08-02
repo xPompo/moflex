@@ -9,6 +9,7 @@ import SignupPage from "../../Components/signUp/SignupPage";
 import TopratedMovies from "../../Components/Home/TopratedMovies";
 import SmallBanner from "../../Components/Home/SmallBanner";
 import LatestNews from "../../Components/Home/LatestNews";
+import Footer from "../../Components/Footer/Footer";
 
 function Home() {
   const [isSignUpPage, setSignUpPage] = useState(false);
@@ -47,6 +48,7 @@ function Home() {
       />
       <SmallBanner fetchPopularMovies={requests.fetchPopularMovies} />
       <LatestNews />
+      <Footer fetchPopularMovies={requests.fetchPopularMovies} />
     </div>
   );
 }
