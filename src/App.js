@@ -4,6 +4,7 @@ import MovieDetails from "./Pages/MovieDetails";
 import { Route, Switch, Redirect } from "react-router-dom";
 import requests from "./axios/requests";
 import { useLocation } from "react-router";
+import AboutPage from "./Pages/AboutPage";
 
 function App() {
   const location = useLocation();
@@ -13,6 +14,7 @@ function App() {
         <Redirect to="/home" />
       </Route>
       <Route exact path="/home" component={Home} />
+      <Route exact path="/about" component={AboutPage} />
       <Route path="/movieDetails">
         <MovieDetails fethchTrendingMovies={requests.fetchTopratedMovies} />
       </Route>

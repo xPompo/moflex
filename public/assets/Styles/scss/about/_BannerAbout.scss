@@ -1,0 +1,18 @@
+.about__banner {
+  background: url("../../../../../src/assets/Img/bg.jpg") no-repeat center;
+  background-size: cover;
+  object-fit: cover;
+  background-attachment: fixed;
+  padding: 5em 0;
+
+  .about__banner_row_1 {
+    justify-content: center;
+    .about__banner_title {
+      text-align: center;
+      color: $white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      width: 50%;
+    }
+  }
+}

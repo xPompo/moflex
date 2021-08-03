@@ -1,7 +1,7 @@
 .footer {
   background-color: $blackBlack;
   color: $white;
-  padding: 5em 0;
+  padding: 5em 0 0 0;
   .logo__brand {
     font-size: 2rem;
   }
@@ -9,5 +9,26 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  .line {
+    margin-top: 1em;
+  }
+  .social__links_email {
+    align-items: center;
+    .footer__email_contact {
+      font-size: 1.5rem;
+    }
+  }
+
+  .copy__bg {
+    background-color: $black;
+    .copyrights {
+      display: flex;
+      justify-content: center;
+      margin: 1.5em 0;
+      font-size: 1rem;
+      letter-spacing: 0.1em;
+      font-weight: normal;
+    }
   }
 }

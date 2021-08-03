@@ -1,0 +1,19 @@
+.story__card {
+  color: $white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .story__card_icon {
+    width: 8rem;
+    margin-bottom: 2em;
+  }
+  .story__card_title {
+    font-weight: bold;
+  }
+  .story__card_subtitle {
+    width: 90%;
+    font-size: 1rem;
+    text-align: center;
+  }
+}

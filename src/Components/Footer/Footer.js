@@ -2,7 +2,7 @@ import React from "react";
 import Search from "../Search/Search";
 import SocialLinks from "../SocialLinks/SocialLinks";
 
-function Footer({ fetchPopularMovies }) {
+function Footer() {
   const NAV_LIST = [
     { name: "Home", path: "/Home" },
     { name: "About", path: "/About" },
@@ -12,7 +12,7 @@ function Footer({ fetchPopularMovies }) {
   return (
     <div className="footer">
       <div className="container">
-        <div className="row align-items-center">
+        <div className="row align-items-center ">
           <div className="col">
             <h1 className="logo__brand">Moflex</h1>
           </div>
@@ -27,14 +27,22 @@ function Footer({ fetchPopularMovies }) {
               </ul>
             </div>
           </div>
-          <div className="row ">
-            <div className="col-4 me-auto">
-              <Search fetchPopularMovies={fetchPopularMovies} />
-            </div>
-            <div className="col-4 social__links px-0">
-              <SocialLinks />
-            </div>
+        </div>
+        <hr className="line"></hr>
+        <div className="row social__links_email my-4 ">
+          <div className="col-4 me-auto">
+            <h6 className="footer__email_contact">pompo@moflex.com</h6>
           </div>
+          <div className="col-4  px-0">
+            <SocialLinks />
+          </div>
+        </div>
+      </div>
+      <div className="copy__bg">
+        <div className="row">
+          <h6 className=" copyrights col">
+            ©2021 <span>Pompo</span> All Rights Reserved
+          </h6>
         </div>
       </div>
     </div>

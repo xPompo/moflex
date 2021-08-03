@@ -1,8 +1,9 @@
 import React from "react";
 import * as HiIcons from "react-icons/hi";
 import * as AiIcons from "react-icons/ai";
+import Search from "../Search/Search";
 
-function Header({ SignIn }) {
+function Header({ SignIn, fetchPopularMovies }) {
   return (
     <>
       <div className="Header__main">
@@ -19,6 +20,9 @@ function Header({ SignIn }) {
                 <button onClick={SignIn} className="btn__main_0 col-auto">
                   Sign In
                 </button>
+                <div className="col">
+                  <Search fetchPopularMovies={fetchPopularMovies} />
+                </div>
               </div>
             </div>
           </div>

@@ -36,7 +36,10 @@ function Home() {
       {isSignInPage && (
         <SignInPage signupHandler={signupHandler} SignOut={Outhandler} />
       )}
-      <Header SignIn={signInHandler} />
+      <Header
+        SignIn={signInHandler}
+        fetchPopularMovies={requests.fetchPopularMovies}
+      />
       <Banner fetchTrending={requests.fetchTrending} />
       <Trending
         signInHandler={signInHandler}
@@ -48,7 +51,7 @@ function Home() {
       />
       <SmallBanner fetchPopularMovies={requests.fetchPopularMovies} />
       <LatestNews />
-      <Footer fetchPopularMovies={requests.fetchPopularMovies} />
+      <Footer />
     </div>
   );
 }
