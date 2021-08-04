@@ -1,14 +1,8 @@
 import React from "react";
-import Search from "../Search/Search";
+import Nav from "../Home/Nav";
 import SocialLinks from "../SocialLinks/SocialLinks";
 
 function Footer() {
-  const NAV_LIST = [
-    { name: "Home", path: "/Home" },
-    { name: "About", path: "/About" },
-    { name: "Movies", path: "/Movies" },
-    { name: "Tv Show", path: "/TvShow" },
-  ];
   return (
     <div className="footer">
       <div className="container">
@@ -16,17 +10,7 @@ function Footer() {
           <div className="col">
             <h1 className="logo__brand">Moflex</h1>
           </div>
-          <div className="col">
-            <div className="row">
-              <ul className="footer__nav_list col ">
-                {NAV_LIST.map((item, index) => (
-                  <li className="footer__nav_item " key={index}>
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <Nav />
         </div>
         <hr className="line"></hr>
         <div className="row social__links_email my-4 ">

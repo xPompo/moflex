@@ -1,24 +1,16 @@
-import React, { useEffect, useState } from "react";
-import axios from "../../axios/axios";
+import React from "react";
 import * as RiIcons from "react-icons/ri";
+import useFetch from "../../hooks/use-fetch";
 
-function Service({ fetchPopularMovies }) {
-  const baseImgURL = "https://image.tmdb.org/t/p/original";
-  const [storeFetchData, setStoreFetchData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios(fetchPopularMovies);
-      setStoreFetchData(res.data.results);
-    };
-    fetchData();
-  }, [fetchPopularMovies]);
+function Service() {
+  const { popular, baseImgURL } = useFetch();
   return (
     <div className="home__service">
       <div className="container">
         <div className="row align-items-center mt-4">
           <div className="col">
             <div className="row service__gallary">
-              {storeFetchData.map((item, index) => {
+              {popular.map((item, index) => {
                 if (index < 4) {
                   return (
                     <div key={index} className="col-6 p-1">

@@ -1,17 +1,7 @@
-import React, { useEffect, useState } from "react";
-import axios from "../../axios/axios";
+import React from "react";
 import * as RiIcons from "react-icons/ri";
 
-function SmallBanner({ fetchPopularMovies }) {
-  const baseImgURL = "https://image.tmdb.org/t/p/original";
-  const [storeFetchData, setStoreFetchData] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios(fetchPopularMovies);
-      setStoreFetchData(res.data.results);
-    };
-    fetchData();
-  }, [fetchPopularMovies]);
+function SmallBanner() {
   return (
     <div className="home__small_banner">
       <div className="container">

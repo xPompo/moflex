@@ -20,7 +20,6 @@ function Header({ SignIn, fetchPopularMovies }) {
       setLocpath(true);
     }
   }, [location.pathname]);
-  console.log(location);
   return (
     <>
       <div className="Header__main">
@@ -42,7 +41,7 @@ function Header({ SignIn, fetchPopularMovies }) {
                       Sign In
                     </button>
                     <div className="col">
-                      <Search fetchPopularMovies={fetchPopularMovies} />
+                      <Search />
                     </div>
                   </>
                 )}

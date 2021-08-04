@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Banner from "../../Components/Home/Banner";
 import Header from "../../Components/Home/Header";
-import requests from "../../axios/requests";
 import Nav from "../../Components/Home/Nav";
 import Service from "../../Components/Home/Service";
 import SignInPage from "../../Components/signin/SignInPage";
@@ -37,16 +36,13 @@ function Home() {
       {isSignInPage && (
         <SignInPage signupHandler={signupHandler} SignOut={Outhandler} />
       )}
-      <Header
-        SignIn={signInHandler}
-        fetchPopularMovies={requests.fetchPopularMovies}
-      />
+      <Header SignIn={signInHandler} />
       <Banner />
       <Nav signInHandler={signInHandler} />
       <MovieRow title="Up Coming Movies" />
-      <Service fetchPopularMovies={requests.fetchPopularMovies} />
+      <Service />
       <TopratedMovies />
-      <SmallBanner fetchPopularMovies={requests.fetchPopularMovies} />
+      <SmallBanner />
       <LatestNews />
       <Footer />
     </div>

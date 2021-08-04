@@ -70,7 +70,9 @@ function MovieRow(props) {
                           </div>
                           <Link to="/movieDetails">
                             <button
-                              onClick={watchClickHandler}
+                              onClick={() => {
+                                watchClickHandler(item?.id);
+                              }}
                               data-index={index}
                               data-id={item?.id}
                               className="btn__main_0 "

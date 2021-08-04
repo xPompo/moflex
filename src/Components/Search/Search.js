@@ -1,35 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as BiIcons from "react-icons/bi";
 import { Form, Field, Formik } from "formik";
 import * as Yup from "yup";
-import axios from "../../axios/axios";
-import { indAction } from "../../ReduxStore/store";
-import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import useFetch from "../../hooks/use-fetch";
 
-function Search({ fetchPopularMovies }) {
-  const dispatch = useDispatch();
-  const [allMovies, setAllMovies] = useState([]);
-  const [filterSearch, setFilterSearch] = useState([]);
-  const [id, setMovieId] = useState();
+function Search() {
+  const { search, watchClickHandler } = useFetch();
+  const [filterSearch, setFilterSearch] = useState("");
+  const [filtered, setFiltered] = useState([]);
+
+  const filterdata = search.filter((el) => {
+    if (el?.original_title !== undefined) {
+      const f = el?.original_title.includes(filterSearch.toLowerCase());
+      return setFiltered(f);
+      // return console.log(el?.title);
+    }
+  });
+  console.log(filterSearch);
+  console.log(filterdata + "  filter Data");
 
   const validate = Yup.object().shape({
     Search: Yup.string()
       .max(30, "Too long")
       .required("Required to start search"),
   });
-
-  useEffect(() => {
-    axios(fetchPopularMovies).then((res) => {
-      return setAllMovies(res.data.results);
-    });
-  }, [fetchPopularMovies]);
-
-  const getMovieDetailsHandler = (item) => {
-    setMovieId(item?.id);
-    dispatch(indAction.getID(id));
-  };
-
   return (
     <div className="searchbar ">
       <Formik
@@ -41,14 +36,13 @@ function Search({ fetchPopularMovies }) {
         }}
       >
         {({ handleChange, errors, touched }) => (
-          <Form>
+          <Form autoComplete="off">
             <Field
               className="searchbar__input"
               onChange={(e) => {
                 handleChange(e);
-                let someValue = e.currentTarget.value.toLowerCase();
+                let someValue = e.currentTarget.value;
                 setFilterSearch(someValue);
-                console.log(filterSearch.length);
               }}
               placeholder="Search..."
               name="Search"
@@ -65,24 +59,20 @@ function Search({ fetchPopularMovies }) {
 
       <div className="search__list">
         {filterSearch.length !== 0 &&
-          allMovies
-            .filter((el) => {
-              return el?.title.toLowerCase().includes(filterSearch);
-            })
-            .map((item, index) => {
-              return (
-                <Link key={index} to="/movieDetails">
-                  <div
-                    onClick={() => {
-                      getMovieDetailsHandler(item);
-                    }}
-                    className="search__item"
-                  >
-                    {item?.title}
-                  </div>
-                </Link>
-              );
-            })}
+          filtered.map((item, index) => {
+            return (
+              <Link key={index} to="/movieDetails">
+                <div
+                  onClick={() => {
+                    watchClickHandler(item?.id);
+                  }}
+                  className="search__item"
+                >
+                  {item?.original_title}
+                </div>
+              </Link>
+            );
+          })}
       </div>
     </div>
   );
