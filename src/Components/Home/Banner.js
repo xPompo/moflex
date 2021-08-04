@@ -1,25 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";
 import "swiper/components/navigation/navigation.min.css";
-import axios from "../../axios/axios";
 import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper/core";
+import useFetch from "../../hooks/use-fetch";
 
 SwiperCore.use([EffectFade, Navigation, Autoplay]);
-
-function Banner({ fetchTrending }) {
-  const [movieTrend, setMovieTrend] = useState([]);
-
-  const baseImgURL = "https://image.tmdb.org/t/p/original";
-
-  useEffect(() => {
-    const fetchUrl = async () => {
-      const res = await axios(fetchTrending);
-      return setMovieTrend(res.data.results);
-    };
-    fetchUrl();
-  }, [fetchTrending]);
+function Banner() {
+  const { trending, baseImgURL } = useFetch();
 
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
@@ -39,7 +28,7 @@ function Banner({ fetchTrending }) {
         navigation={true}
         className="mySwiper"
       >
-        {movieTrend.map((item, index) => {
+        {trending.map((item, index) => {
           return (
             <SwiperSlide key={index}>
               {({ isActive }) => (

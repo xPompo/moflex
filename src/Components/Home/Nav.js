@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SubscribeButtons from "./SubscribeButtons";
 
 function Nav({ signInHandler }) {
   const NAV_DATA = [
     { name: "Home", path: "/Home" },
     { name: "About", path: "/About" },
     { name: "Movies", path: "/Movies" },
-    { name: "My List", path: "/My List" },
+    { name: "Tv Show", path: "/tvShow" },
   ];
   return (
     <div className="main__nav">
@@ -21,13 +22,7 @@ function Nav({ signInHandler }) {
               ))}
             </div>
           </ul>
-          <div className="col-auto">
-            <button className="btn__main_1">+Discover</button>
-
-            <button onClick={signInHandler} className="btn__main_0">
-              +Subscribe
-            </button>
-          </div>
+          <SubscribeButtons signInHandler={signInHandler}></SubscribeButtons>
         </div>
       </div>
     </div>

@@ -1,8 +1,7 @@
 import React from "react";
 import * as AiIcons from "react-icons/ai";
 
-function GallaryOfMovies({ poster, name, date, count }) {
-  const baseImgURL = "https://image.tmdb.org/t/p/original";
+function GallaryOfMovies({ poster, name, date, count, baseImgURL }) {
   return (
     <div className="gallary__poster col-3 ">
       <img

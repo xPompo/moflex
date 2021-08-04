@@ -3,6 +3,7 @@ import React from "react";
 function BannerAbout() {
   return (
     <div className="about__banner">
+      <div className="about__banner_bg"></div>
       <div className="container">
         <div className="row about__banner_row_1">
           <h6 className="about__banner_title col-auto">

@@ -1,0 +1,41 @@
+.testmonials {
+  padding: 5em 0;
+  background-color: $black;
+  color: $white;
+  .row {
+    position: relative;
+    align-items: flex-start;
+    justify-content: space-between;
+    // justify-content: center;
+    .notaion_up {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      object-fit: contain;
+      transform: rotate(180deg);
+    }
+    .mySwiper_2 {
+      .swiper-slide {
+        width: 100%;
+      }
+      .testmonials__subttitle {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .testmonials__ttitle {
+        font-size: 1rem;
+        color: $lightWight;
+        margin-bottom: 1em;
+      }
+    }
+    .notaion_down {
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      object-fit: contain;
+    }
+  }
+}

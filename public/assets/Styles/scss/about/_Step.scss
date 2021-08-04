@@ -1,0 +1,44 @@
+.step {
+  padding: 5em 0;
+  background-color: $blackBlack;
+  .row {
+    justify-content: space-between;
+  }
+  .step__image_main {
+    .step__img {
+      width: 100%;
+      height: 45vh;
+      background-size: cover;
+      object-fit: cover;
+      background-position: center;
+    }
+  }
+
+  .step__text {
+    color: $white;
+    .step_title_number {
+      font-size: 4.5rem;
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 0.1rem $white;
+    }
+    .step_title {
+      font-weight: bold;
+      font-size: 2rem;
+      margin-bottom: 0.2em;
+    }
+    .step_subtitle {
+      width: 70%;
+      font-weight: normal;
+      font-size: 1rem;
+      line-height: 1.4em;
+      letter-spacing: 0.02em;
+      margin-bottom: 2em;
+    }
+    .btn__main_0 {
+      padding: 1em 2.5em;
+      text-transform: capitalize;
+      color: $black;
+    }
+  }
+}

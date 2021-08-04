@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Banner from "../../Components/Home/Banner";
 import Header from "../../Components/Home/Header";
 import requests from "../../axios/requests";
-import Trending from "../../Components/Home/Trending";
+import Nav from "../../Components/Home/Nav";
 import Service from "../../Components/Home/Service";
 import SignInPage from "../../Components/signin/SignInPage";
 import SignupPage from "../../Components/signUp/SignupPage";
@@ -10,6 +10,7 @@ import TopratedMovies from "../../Components/Home/TopratedMovies";
 import SmallBanner from "../../Components/Home/SmallBanner";
 import LatestNews from "../../Components/Home/LatestNews";
 import Footer from "../../Components/Footer/Footer";
+import MovieRow from "../../Components/Movies/MovieRow";
 
 function Home() {
   const [isSignUpPage, setSignUpPage] = useState(false);
@@ -40,15 +41,11 @@ function Home() {
         SignIn={signInHandler}
         fetchPopularMovies={requests.fetchPopularMovies}
       />
-      <Banner fetchTrending={requests.fetchTrending} />
-      <Trending
-        signInHandler={signInHandler}
-        fethchTrendingMovies={requests.fetchTopratedMovies}
-      />
+      <Banner />
+      <Nav signInHandler={signInHandler} />
+      <MovieRow title="Up Coming Movies" />
       <Service fetchPopularMovies={requests.fetchPopularMovies} />
-      <TopratedMovies
-        fethchTrendingMoviesPage2={requests.fetchTopratedMoviesPage2}
-      />
+      <TopratedMovies />
       <SmallBanner fetchPopularMovies={requests.fetchPopularMovies} />
       <LatestNews />
       <Footer />

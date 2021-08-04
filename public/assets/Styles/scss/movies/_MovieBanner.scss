@@ -1,0 +1,54 @@
+.movie_banner {
+  background-image: linear-gradient(
+    to top,
+    rgba($blackBlack, 1),
+    rgba($blackBlack, 0.05)
+  );
+  position: relative;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  padding: 5em 0;
+  .movie_banner_bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-attachment: fixed;
+  }
+  //---  text  ----//
+  .small_banner__text {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    //--- subtittle  ----//
+    .small_banner__subtittle {
+      color: $main;
+      font-size: 1.2rem;
+      display: flex;
+      text-transform: uppercase;
+      align-items: center;
+      p {
+        background-color: $main;
+        width: 3rem;
+        height: 0.1rem;
+        margin: 0 1em;
+      }
+    }
+    //--- tittle  ----//
+    .small_banner__tittle {
+      font-weight: bold;
+      font-size: 3.5rem;
+      width: 60%;
+      text-align: center;
+    }
+  }
+}

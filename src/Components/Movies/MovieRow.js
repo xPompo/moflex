@@ -1,45 +1,24 @@
-import React, { useState, useEffect } from "react";
-import axios from "../../axios/axios";
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { indAction } from "../../ReduxStore/store";
 import SwiperCore, { Autoplay, Pagination } from "swiper/core";
-import Nav from "./Nav";
+import useFetch from "../../hooks/use-fetch";
 
 SwiperCore.use([Autoplay, Pagination]);
-function Trending({ fethchTrendingMovies, signInHandler }) {
-  const [topMovies, setTopMovies] = useState([]);
-  const dispatch = useDispatch();
-
-  const baseImgURL = "https://image.tmdb.org/t/p/original";
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios(fethchTrendingMovies);
-      // console.log(res.data.results);
-      return setTopMovies(res.data.results);
-    };
-    fetchData();
-  }, [fethchTrendingMovies]);
-
-  const watchClickHandler = (e) => {
-    const index = e.target.attributes.getNamedItem("data-index").value;
-    const movieId = e.target.attributes.getNamedItem("data-id").value;
-    dispatch(indAction.getIndex(index));
-    dispatch(indAction.getID(movieId));
-  };
+function MovieRow(props) {
+  const { title } = props;
+  const { upComing, baseImgURL, watchClickHandler } = useFetch();
 
   return (
     <div className="trending__main">
       <div className="container">
-        <Nav signInHandler={signInHandler} />
         <div className="row mt-4">
           <p className="subtittle__small">Live Streaming</p>
-          <h1 className="tittle__small">Top Rated Movies</h1>
+          <h1 className="tittle__small">{title}</h1>
         </div>
-        <div className="row">
+        <div className="row mt-4">
           <Swiper
             autoplay={{
               delay: 2500,
@@ -69,7 +48,7 @@ function Trending({ fethchTrendingMovies, signInHandler }) {
             }}
             className="mySwiper_1"
           >
-            {topMovies.map((item, index) => {
+            {upComing.map((item, index) => {
               return (
                 <SwiperSlide key={index}>
                   {({ isActive }) => (
@@ -114,22 +93,8 @@ function Trending({ fethchTrendingMovies, signInHandler }) {
           </Swiper>
         </div>
       </div>
-      {/* {topMoviesDetails && (
-        <TopMoviesDetails
-          baseImgURL={baseImgURL}
-          pic={topMovies[ind]?.backdrop_path}
-          title={
-            topMovies[ind]?.title ||
-            topMovies[ind]?.original_title ||
-            topMovies[ind]?.name
-          }
-          overView={topMovies[ind]?.overview}
-          date={topMovies[ind]?.release_date}
-          rate={topMovies[ind]?.vote_average}
-        />
-      )} */}
     </div>
   );
 }
 
-export default Trending;
+export default MovieRow;

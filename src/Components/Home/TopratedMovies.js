@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GallaryOfMovies from "./GallaryOfMovies";
-import axios from "../../axios/axios";
+import useFetch from "../../hooks/use-fetch";
 
-function TopratedMovies({ fethchTrendingMoviesPage2 }) {
-  const [topMovies, setTopMovies] = useState([]);
-
-  useEffect(() => {
-    axios(fethchTrendingMoviesPage2).then((res) => {
-      console.log(res.data.results);
-      return setTopMovies(res.data.results);
-    });
-  }, [fethchTrendingMoviesPage2]);
+function TopratedMovies() {
+  const { popular, baseImgURL } = useFetch();
 
   return (
     <div className="top__rated_movies">
@@ -20,7 +13,7 @@ function TopratedMovies({ fethchTrendingMoviesPage2 }) {
           <h1 className="tittle__small">Top Rated Movies</h1>
         </div>
         <div className="row">
-          {topMovies.map((item, index) => {
+          {popular.map((item, index) => {
             if (index < 8) {
               return (
                 <GallaryOfMovies
@@ -29,6 +22,7 @@ function TopratedMovies({ fethchTrendingMoviesPage2 }) {
                   name={item?.title || item?.original_title || item?.name}
                   date={item?.release_date}
                   count={item?.vote_count}
+                  baseImgURL={baseImgURL}
                 />
               );
             }
