@@ -1,36 +1,52 @@
 .searchbar {
-  position: relative;
-  .searchbar__input {
-    width: 100%;
+  .search__from {
+    position: relative;
+    .searchbar__input {
+      width: 100%;
+      border: none;
+      height: 3rem;
+      padding-left: 1em;
+      background-color: rgba($white, 0.1);
+      color: $white;
+      border-radius: 1.5rem;
+    }
+    //---- search icon btn  ----//
+    .searchbar__btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // background-color: $black;
+      // padding: 0.5em 1em;
+      color: $main;
+      font-size: 1.3rem;
+      position: absolute;
+      top: 0;
+      left: 95%;
+      transform: translate(-100%, 55%);
+      z-index: 9;
+    }
   }
-  .searchbar__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $main;
-    background-color: $black;
-    padding: 0.5em 1em;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    transform: translate(-100%, 0);
-    z-index: 9;
-  }
+
+  //---- search list titles  ----//
   .search__list {
     position: absolute;
     background-color: $white;
     color: $black;
-    width: 55%;
+    width: 100%;
     overflow: hidden;
     overflow-y: auto;
-    .search__item {
-      padding: 0.2em 1.5em;
-      font-size: 0.8rem;
-      font-weight: bold;
-      transition: all 0.15s ease-out;
-      &:hover {
-        background-color: $main;
-        color: $white;
+    //---- search list title-item  ----//
+    .search__list_link {
+      color: $black;
+      .search__item {
+        padding: 0.2em 1.5em;
+        font-size: 0.8rem;
+        font-weight: bold;
+        transition: all 0.15s ease-out;
+        &:hover {
+          background-color: $main;
+          color: $white;
+        }
       }
     }
   }

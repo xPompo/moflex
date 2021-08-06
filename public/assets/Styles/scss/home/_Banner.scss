@@ -95,11 +95,11 @@
   .swiper-button-next::after {
     content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
     content: "";
-    transform: scale(0.4) translateX(-100%);
+    transform: scale(0.4) translateX(-200%);
   }
   .swiper-button-prev::after {
     content: url("../../../../../src/assets/icons/R-arrow.svg") !important;
     content: "";
-    transform: scale(0.4) translateX(100%) rotateY(180deg);
+    transform: scale(0.4) translateX(200%) rotateY(180deg);
   }
 }

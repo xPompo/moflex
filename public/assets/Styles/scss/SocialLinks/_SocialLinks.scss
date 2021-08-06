@@ -15,9 +15,9 @@
     border-radius: 50%;
     transition: all 0.5s ease-in-out;
     &:hover {
-      color: $white;
+      color: $main;
       background-color: transparent;
-      border: 0.05rem solid $white;
+      border: 0.05rem solid $main;
     }
   }
 }

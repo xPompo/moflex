@@ -4,9 +4,10 @@ import * as RiIcons from "react-icons/ri";
 function SmallBanner() {
   return (
     <div className="home__small_banner">
+      <div className="small__banner_bg"></div>
       <div className="container">
-        <div className="banner__width row align-items-center mt-4">
-          <div className="col small_banner__text">
+        <div className="row align-items-center mt-4">
+          <div className="col-12  col-lg-6 col-md-8 small_banner__text">
             <h1 className="small_banner__subtittle m-0">
               <p></p>ONLINE STREAMING
             </h1>
@@ -25,7 +26,7 @@ function SmallBanner() {
                   <RiIcons.RiSlideshow2Line />
                 </p>
               </div>
-              <div className="col">
+              <div className="col-md-8 col-12 ">
                 <h1 className="small_banner__small_tittle">
                   Enjoy on Your TV.
                 </h1>
@@ -41,7 +42,7 @@ function SmallBanner() {
                   <RiIcons.RiSlideshow4Line />
                 </p>
               </div>
-              <div className="col">
+              <div className="col-md-8 col-12">
                 <h1 className="small_banner__small_tittle">
                   Watch Everywhere.
                 </h1>

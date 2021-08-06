@@ -16,10 +16,10 @@ function LatestNews() {
       <div className="latest_news_overlay"></div>
       <div className="container">
         <div className="row align-items-center">
-          <div className="col-6">
+          <div className="col-lg-6 col-12 text-center mb-lg-0 mb-4">
             <h3 className="latest_news_title">trial start first 30 days.</h3>
             <h6 className="latest_news_subtitle">
-              Enter your email to create or restart your membership.
+              Enter your email to create your membership.
             </h6>
           </div>
           <Formik
@@ -30,7 +30,7 @@ function LatestNews() {
             }}
           >
             {({ errors, touched }) => (
-              <div className="col-6">
+              <div className="col-lg-6 col-12">
                 <Form className="row">
                   <Field
                     className="col latest_news_input"

@@ -22,7 +22,7 @@
       .overlay {
         position: absolute;
         display: flex; //==>  Hover  <==//
-        opacity: 0;
+        opacity: 0; //==> opacity 0
         transform: translateY(-50%);
         flex-direction: column;
         align-items: center;
@@ -51,6 +51,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        font-size: 1rem;
 
         //---- poster Date  ----//
         .poster__date {
@@ -62,8 +63,6 @@
           background-color: rgba($black, $alpha: 0.8);
           padding: 0.5em 1em;
           border-radius: 0.25em;
-          margin-left: 2em;
-          font-size: 0.7rem;
           font-weight: bold;
           span {
             color: $white;
@@ -71,6 +70,12 @@
             font-weight: normal;
           }
         }
+      }
+      //---- poster button  ----//
+      .btn__main_0 {
+        height: 4rem;
+        width: 100%;
+        font-size: 1rem;
       }
     }
   }

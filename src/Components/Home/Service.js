@@ -8,7 +8,7 @@ function Service() {
     <div className="home__service">
       <div className="container">
         <div className="row align-items-center mt-4">
-          <div className="col">
+          <div className="col-md-6 col-12 mb-4 mb-md-0">
             <div className="row service__gallary">
               {popular.map((item, index) => {
                 if (index < 4) {
@@ -26,7 +26,7 @@ function Service() {
               })}
             </div>
           </div>
-          <div className="col service__text">
+          <div className="col-md-6 col-12 mt-4 mt-md-0 service__text">
             <h1 className="service__subtittle m-0">
               <p></p>OUR SERVICE
             </h1>

@@ -25,7 +25,7 @@ function Footer() {
       <div className="copy__bg">
         <div className="row">
           <h6 className=" copyrights col">
-            ©2021 <span>Pompo</span> All Rights Reserved
+            ©2021 <span> Pompo </span> Rights Reserved
           </h6>
         </div>
       </div>

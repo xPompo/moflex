@@ -11,7 +11,7 @@ function Search() {
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {
-    const fff = title?.filter((el) => {
+    const filterdData = title?.filter((el) => {
       if (
         el?.titleName !== undefined &&
         el?.titleName.toLowerCase().includes(filterSearch.toLowerCase())
@@ -19,7 +19,7 @@ function Search() {
         return true;
       }
     });
-    setFiltered(fff);
+    setFiltered(filterdData);
   }, [filterSearch]);
 
   const validate = Yup.object().shape({
@@ -38,7 +38,7 @@ function Search() {
         }}
       >
         {({ handleChange, errors, touched }) => (
-          <Form autoComplete="off">
+          <Form className="search__from" autoComplete="off">
             <Field
               className="searchbar__input"
               onChange={(e) => {
@@ -63,7 +63,11 @@ function Search() {
         {filterSearch.length !== 0 &&
           filtered.map((item, index) => {
             return (
-              <Link key={index} to="/movieDetails">
+              <Link
+                className="search__list_link"
+                key={index}
+                to="/movieDetails"
+              >
                 <div
                   onClick={() => {
                     watchClickHandler(item?.id);

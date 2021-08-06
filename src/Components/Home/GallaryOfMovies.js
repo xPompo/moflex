@@ -1,14 +1,27 @@
 import React from "react";
 import * as AiIcons from "react-icons/ai";
+import { Link } from "react-router-dom";
+import useFetch from "../../hooks/use-fetch";
 
-function GallaryOfMovies({ poster, name, date, count, baseImgURL }) {
+function GallaryOfMovies({ poster, name, date, count, baseImgURL, id }) {
+  const { watchClickHandler } = useFetch();
   return (
-    <div className="gallary__poster col-3 ">
-      <img
-        className="gallary__poster_image"
-        src={`${baseImgURL}${poster}`}
-        alt={name}
-      />
+    <div className="gallary__poster col-lg-3 col-md-4 col-sm-6 col-12 ">
+      <Link to="/movieDetails">
+        <div
+          onClick={() => {
+            watchClickHandler(id);
+          }}
+          className="row gallary__poster_image_wrapper "
+        >
+          <img
+            className="gallary__poster_image"
+            src={`${baseImgURL}${poster}`}
+            alt={name}
+          />
+        </div>
+      </Link>
+
       <div className="row gallary__title_row">
         <h6 className=" col gallary__title">
           {name?.length > 20 ? name.substr(0, 20) + "..." : name}

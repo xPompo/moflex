@@ -38,12 +38,16 @@ function MovieRow(props) {
                 spaceBetween: 10,
               },
               768: {
-                slidesPerView: 3,
-                spaceBetween: 10,
+                slidesPerView: 2,
+                spaceBetween: 30,
               },
               1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+              },
+              1500: {
                 slidesPerView: 4,
-                spaceBetween: 10,
+                spaceBetween: 30,
               },
             }}
             className="mySwiper_1"
@@ -57,25 +61,23 @@ function MovieRow(props) {
                         <h1 className="poster__tittle">
                           {item?.original_title || item?.tittle || item?.name}
                         </h1>
-                        <div className="poster__wrappper_footer">
-                          <div className="poster__date_rate">
-                            <p className="poster__date">
+                        <div className=" container poster__wrappper_footer">
+                          <div className=" row mb-4 poster__date_rate">
+                            <p className="col-auto ms-4 poster__date">
                               {" "}
                               {item?.release_date}
                             </p>
-                            <p className="poster__rate">
+                            <p className="col-auto me-4 poster__rate">
                               <span>10 / </span>
                               {item?.vote_average}
                             </p>
                           </div>
-                          <Link to="/movieDetails">
+                          <Link className="row" to="/movieDetails">
                             <button
                               onClick={() => {
                                 watchClickHandler(item?.id);
                               }}
-                              data-index={index}
-                              data-id={item?.id}
-                              className="btn__main_0 "
+                              className="col btn__main_0 "
                             >
                               Discover More
                             </button>

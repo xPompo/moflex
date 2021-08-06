@@ -22,6 +22,7 @@ function TopratedMovies() {
                   name={item?.title || item?.original_title || item?.name}
                   date={item?.release_date}
                   count={item?.vote_count}
+                  id={item?.id}
                   baseImgURL={baseImgURL}
                 />
               );
