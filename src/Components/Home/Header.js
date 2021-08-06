@@ -5,19 +5,15 @@ import Search from "../Search/Search";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-function Header({ SignIn, fetchPopularMovies }) {
+function Header({ SignIn }) {
   const [locpath, setLocpath] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
-    if (
-      location.pathname === "/About" ||
-      location.pathname === "/Movies" ||
-      location.pathname === "/tvShow"
-    ) {
-      setLocpath(false);
-    } else {
+    if (location.pathname === "/Home") {
       setLocpath(true);
+    } else {
+      setLocpath(false);
     }
   }, [location.pathname]);
   return (

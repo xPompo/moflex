@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const init = { movieID: null, AllData: {} };
+const init = { movieID: null };
 const indSlice = createSlice({
   name: "index",
   initialState: init,
@@ -11,6 +11,6 @@ const indSlice = createSlice({
   },
 });
 
-const store = configureStore({ reducer: { indexRed: indSlice.reducer } });
+const store = configureStore({ reducer: indSlice.reducer });
 export default store;
 export const indAction = indSlice.actions;

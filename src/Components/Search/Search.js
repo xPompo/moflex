@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as BiIcons from "react-icons/bi";
 import { Form, Field, Formik } from "formik";
 import * as Yup from "yup";
@@ -6,19 +6,21 @@ import { Link } from "react-router-dom";
 import useFetch from "../../hooks/use-fetch";
 
 function Search() {
-  const { search, watchClickHandler } = useFetch();
+  const { title, watchClickHandler } = useFetch();
   const [filterSearch, setFilterSearch] = useState("");
   const [filtered, setFiltered] = useState([]);
 
-  const filterdata = search.filter((el) => {
-    if (el?.original_title !== undefined) {
-      const f = el?.original_title.includes(filterSearch.toLowerCase());
-      return setFiltered(f);
-      // return console.log(el?.title);
-    }
-  });
-  console.log(filterSearch);
-  console.log(filterdata + "  filter Data");
+  useEffect(() => {
+    const fff = title?.filter((el) => {
+      if (
+        el?.titleName !== undefined &&
+        el?.titleName.toLowerCase().includes(filterSearch.toLowerCase())
+      ) {
+        return true;
+      }
+    });
+    setFiltered(fff);
+  }, [filterSearch]);
 
   const validate = Yup.object().shape({
     Search: Yup.string()
@@ -68,7 +70,7 @@ function Search() {
                   }}
                   className="search__item"
                 >
-                  {item?.original_title}
+                  {item?.titleName}
                 </div>
               </Link>
             );

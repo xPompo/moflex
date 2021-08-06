@@ -11,7 +11,7 @@ import Header from "../Components/Home/Header";
 import useFetch from "../hooks/use-fetch";
 
 SwiperCore.use([Autoplay, Pagination]);
-function MovieDetails({ fethchTrendingMovies }) {
+function MovieDetails() {
   const { baseImgURL, API_KEY } = useFetch();
   const [title, setTitle] = useState("");
   const [overview, setOverview] = useState("");
@@ -19,29 +19,37 @@ function MovieDetails({ fethchTrendingMovies }) {
   const [vote, setVote] = useState("");
   const [storeMovieImages, setStoreMovieImages] = useState([]);
   const [storeID, setStoreID] = useState(null);
-  //---- id useEffect Function ----//
-  const ID = useSelector((state) => state.indexRed.movieID);
 
+  const ID = useSelector((state) => state.movieID);
+
+  //---- Onreload data no lose  ----//
+  useEffect(() => {
+    const localID = localStorage.getItem("ID");
+    return setStoreID(localID);
+  }, []);
+  //---- id useEffect Function ----//
   useEffect(() => {
     if (ID !== null) {
-      setStoreID(ID);
-      localStorage.setItem("ID", JSON.stringify(storeID));
+      localStorage.setItem("ID", JSON.stringify(ID));
+      return setStoreID(ID);
     }
-  }, [ID, storeID]);
+  }, [ID]);
 
   //---- fetch date images based on id  ----//
   //---- fetch Images  ----//
-  const fetchMovieImages = `/movie/${storeID}/images?api_key=${API_KEY}&language=en-US&include_image_language=en`;
   useEffect(() => {
+    const fetchMovieImages = `/movie/${storeID}/images?api_key=${API_KEY}&language=en-US&include_image_language=en`;
     if (storeID !== null) {
-      axios(fetchMovieImages).then((res) => {
-        setStoreMovieImages(res.data.backdrops);
-      });
+      axios(fetchMovieImages)
+        .then((res) => {
+          setStoreMovieImages(res.data.backdrops);
+        })
+        .catch((err) => console.log(err));
     }
-  }, [fetchMovieImages, storeID]);
+  }, [storeID]);
   //---- fetch Details  ----//
-  const fetchMovieDetails = `/movie/${storeID}?api_key=${API_KEY}&language=en-US`;
   useEffect(() => {
+    const fetchMovieDetails = `/movie/${storeID}?api_key=${API_KEY}&language=en-US`;
     if (storeID !== null) {
       axios(fetchMovieDetails).then((res) => {
         setTitle(res.data.original_title);
@@ -50,12 +58,8 @@ function MovieDetails({ fethchTrendingMovies }) {
         setVote(res.data.vote_average);
       });
     }
-  }, [fetchMovieDetails, storeID]);
-  //---- Onreload data no lose  ----//
-  useEffect(() => {
-    const localID = localStorage.getItem("ID");
-    setStoreID(JSON.parse(localID));
-  }, []);
+  }, [storeID]);
+
   return (
     <>
       <Header />

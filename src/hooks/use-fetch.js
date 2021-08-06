@@ -10,7 +10,6 @@ function useFetch() {
     fetchTrending,
     fetchPopularMovies,
     fetchLatestMovies,
-    fetchSearch,
   } = requests;
   const dispatch = useDispatch();
   const baseImgURL = "https://image.tmdb.org/t/p/original";
@@ -19,7 +18,7 @@ function useFetch() {
   const [trending, setTrending] = useState([]);
   const [popular, setPopular] = useState([]);
   const [latest, setLatest] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [title, setTitle] = useState([]);
 
   //---- upComing  ----//
   useEffect(() => {
@@ -47,12 +46,16 @@ function useFetch() {
     });
   }, [fetchLatestMovies]);
 
-  //---- search  ----//
+  //---- titles  ----//
   useEffect(() => {
-    axios(fetchSearch).then((res) => {
-      return setSearch(res.data.results);
+    axios(fetchTrending).then((res) => {
+      return setTitle(
+        res.data.results.map((el) => {
+          return { id: el.id, titleName: el.original_title };
+        })
+      );
     });
-  }, [fetchSearch]);
+  }, [fetchTrending]);
 
   const watchClickHandler = (id) => {
     dispatch(indAction.getID(id));
@@ -66,7 +69,9 @@ function useFetch() {
     latest,
     trending,
     baseImgURL,
-    search,
+    title,
+    id: title.id,
+    titleName: title.titleName,
     watchClickHandler,
   };
 }
