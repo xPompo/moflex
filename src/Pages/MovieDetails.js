@@ -65,7 +65,7 @@ function MovieDetails() {
       <Header />
       <div className="movieDetails__bg">
         <div className="container">
-          <Link to="/home" className="movieDetails__back">
+          <Link to="/Home" className="movieDetails__back">
             <button className="btn__main_0">
               <RiIcons.RiArrowLeftSLine />
             </button>
