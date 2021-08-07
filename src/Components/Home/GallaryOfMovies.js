@@ -6,7 +6,7 @@ import useFetch from "../../hooks/use-fetch";
 function GallaryOfMovies({ poster, name, date, count, baseImgURL, id }) {
   const { watchClickHandler } = useFetch();
   return (
-    <div className="gallary__poster col-lg-3 col-md-4 col-sm-6 col-12 ">
+    <div className="gallary__poster mt-4 col-lg-3 col-md-4 col-sm-6 col-12 ">
       <Link to="/movieDetails">
         <div
           onClick={() => {

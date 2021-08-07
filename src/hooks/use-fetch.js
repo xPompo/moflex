@@ -2,15 +2,10 @@ import { useState, useEffect } from "react";
 import axios from "../axios/axios";
 import { useDispatch } from "react-redux";
 import { indAction } from "../ReduxStore/store";
-import requests from "../axios/requests";
+import useRequests from "../axios/requests";
 
-function useFetch() {
-  const {
-    fetchUpComingMovies,
-    fetchTrending,
-    fetchPopularMovies,
-    fetchLatestMovies,
-  } = requests;
+function useFetch(prev) {
+  const { requests } = useRequests();
   const dispatch = useDispatch();
   const baseImgURL = "https://image.tmdb.org/t/p/original";
   const API_KEY = "bc16f35e8e1e9a62fd4a90b95c9d86af";
@@ -19,48 +14,66 @@ function useFetch() {
   const [popular, setPopular] = useState([]);
   const [latest, setLatest] = useState([]);
   const [title, setTitle] = useState([]);
+  const [count, setCount] = useState(1);
+  const [isDisabled, setIsDisabled] = useState(false);
 
   //---- upComing  ----//
   useEffect(() => {
-    axios(fetchUpComingMovies).then((res) => {
+    axios(requests.fetchUpComingMovies).then((res) => {
       return setUpComing(res.data.results);
     });
-  }, [fetchUpComingMovies]);
+  }, [requests.fetchUpComingMovies]);
   //---- Trending  ----//
   useEffect(() => {
-    axios(fetchTrending).then((res) => {
+    axios(requests.fetchTrending).then((res) => {
       return setTrending(res.data.results);
     });
-  }, [fetchTrending]);
+  }, [requests.fetchTrending]);
 
   //---- popular  ----//
   useEffect(() => {
-    axios(fetchPopularMovies).then((res) => {
+    axios(requests.fetchPopularMovies).then((res) => {
       return setPopular(res.data.results);
     });
-  }, [fetchPopularMovies]);
+  }, [requests.fetchPopularMovies]);
   //---- latest  ----//
   useEffect(() => {
-    axios(fetchLatestMovies).then((res) => {
+    axios(requests.fetchLatestMovies).then((res) => {
       return setLatest(res.data.results);
     });
-  }, [fetchLatestMovies]);
+  }, [requests.fetchLatestMovies]);
 
   //---- titles  ----//
   useEffect(() => {
-    axios(fetchTrending).then((res) => {
+    axios(requests.fetchTrending).then((res) => {
       return setTitle(
         res.data.results.map((el) => {
           return { id: el.id, titleName: el.original_title };
         })
       );
     });
-  }, [fetchTrending]);
+  }, [requests.fetchTrending]);
 
+  //----  onClick get My ID  ----//
   const watchClickHandler = (id) => {
     dispatch(indAction.getID(id));
     console.log(id);
   };
+
+  //----  pageHandler pagaination  ----//
+
+  const pageHandler = (prev) => {
+    if (count > 1 && prev) setCount((prevState) => prevState - 1);
+    else if (!prev) setCount((prevState) => prevState + 1);
+    else return;
+    setIsDisabled(true);
+    setTimeout(() => {
+      setIsDisabled(false);
+    }, 1500);
+  };
+  useEffect(() => {
+    dispatch(indAction.getPage(count));
+  }, [count]);
 
   return {
     upComing,
@@ -69,10 +82,14 @@ function useFetch() {
     latest,
     trending,
     baseImgURL,
+
     title,
     id: title.id,
     titleName: title.titleName,
     watchClickHandler,
+    pageHandler,
+    isDisabled,
+    count,
   };
 }
 

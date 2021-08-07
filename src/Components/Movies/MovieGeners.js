@@ -1,6 +1,7 @@
 import React from "react";
 import GallaryOfMovies from "../Home/GallaryOfMovies";
 import Pagination from "./Pagination";
+
 import useFetch from "../../hooks/use-fetch";
 
 function MovieGeners() {
@@ -13,7 +14,8 @@ function MovieGeners() {
           <p className="subtittle__small">Live Streaming</p>
           <h1 className="tittle__small">Top Rated Movies</h1>
         </div>
-        <div className="row">
+
+        <div className="row ">
           {popular.map((item, index) => {
             if (index < 16) {
               return (
