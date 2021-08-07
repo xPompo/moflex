@@ -46,7 +46,7 @@ function MovieDetails() {
         })
         .catch((err) => console.log(err));
     }
-  }, [storeID]);
+  }, [storeID, API_KEY]);
   //---- fetch Details  ----//
   useEffect(() => {
     const fetchMovieDetails = `/movie/${storeID}?api_key=${API_KEY}&language=en-US`;
@@ -58,7 +58,7 @@ function MovieDetails() {
         setVote(res.data.vote_average);
       });
     }
-  }, [storeID]);
+  }, [storeID, API_KEY]);
 
   return (
     <>

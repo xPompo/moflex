@@ -11,6 +11,11 @@
       background-size: cover;
       object-fit: cover;
       background-position: center;
+      transition: all 0.3s ease-out;
+      &:hover {
+        border-radius: 2rem;
+        transform: scale(1.05);
+      }
     }
   }
 

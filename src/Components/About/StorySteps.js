@@ -1,37 +1,40 @@
 import React from "react";
 import Step from "./Step";
-import img1 from "../../assets/Img/bg.jpg";
+import img1 from "../../assets/Img/family.jpg";
+import img2 from "../../assets/Img/car.jpg";
+import img3 from "../../assets/Img/sub.jpg";
+import img4 from "../../assets/Img/FHD.jpg";
 
 function StorySteps() {
   const STEP_DATA = [
     {
       img: img1,
       number: ".01",
-      title: "the wastelands.",
+      title: "Family First.",
       subtitle:
         " Ut enim ad minim veniam, quis nostrud exercitation ullamco lab oris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
       direction: true,
     },
     {
-      img: img1,
+      img: img2,
       number: ".02",
-      title: "the wastelands.",
+      title: "Quality FHD.",
       subtitle:
         " Ut enim ad minim veniam, quis nostrud exercitation ullamco lab oris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
       direction: false,
     },
     {
-      img: img1,
+      img: img3,
       number: ".03",
-      title: "the wastelands.",
+      title: "Premuim Subtitle.",
       subtitle:
         " Ut enim ad minim veniam, quis nostrud exercitation ullamco lab oris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
       direction: true,
     },
     {
-      img: img1,
+      img: img4,
       number: ".04",
-      title: "the wastelands.",
+      title: "Top rated movies.",
       subtitle:
         " Ut enim ad minim veniam, quis nostrud exercitation ullamco lab oris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.",
       direction: false,

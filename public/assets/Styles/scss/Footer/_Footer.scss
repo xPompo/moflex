@@ -15,8 +15,25 @@
   }
   .social__links_email {
     align-items: center;
-    .footer__email_contact {
-      font-size: 1.5rem;
+    .footer__insta_head {
+      font-size: 1.8rem;
+    }
+  }
+  .insta__img {
+    transition: all 0.3s ease-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .footer__email,
+  .footer__phone {
+    color: $white;
+    font-size: 1rem;
+    font-weight: normal;
+    span {
+      color: $main;
+      font-weight: bold;
+      padding-right: 0.5em;
     }
   }
   //----  copyrights  ----//

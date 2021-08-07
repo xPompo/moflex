@@ -1,10 +1,12 @@
-import { infinity } from "check-types";
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from "swiper/core";
 import "swiper/swiper.min.css";
 import comma from "../../assets/icons/comma-w.svg";
-
+import commaFill from "../../assets/icons/comma-fill.svg";
+SwiperCore.use([Autoplay]);
 function Testmonials() {
+  const [commaState, setComma] = useState(false);
   const TESTMONIALS = [
     {
       testmonial:
@@ -27,16 +29,27 @@ function Testmonials() {
       name: " Delpha/ Legacy Interactions Officer",
     },
   ];
+  const handleComma = () => {
+    setComma((prev) => !prev);
+
+    // setComma(false);
+  };
+
   return (
     <div className="testmonials">
       <div className="container">
         <div className="row align-items-center ">
           <div className="col-2">
-            <img src={comma} className="notaion_up" />
+            <img src={commaState ? commaFill : comma} className="notaion_up" />
           </div>
           <Swiper
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            speed={800}
             slidesPerView={1}
-            loop={infinity}
+            onSlideChange={handleComma}
             className="col-8 mySwiper_2"
           >
             {TESTMONIALS.map((item, index) => {
@@ -53,7 +66,10 @@ function Testmonials() {
             })}
           </Swiper>
           <div className="col-2">
-            <img src={comma} className=" notaion_down" />
+            <img
+              src={commaState ? commaFill : comma}
+              className="notaion_down"
+            />
           </div>
         </div>
       </div>
