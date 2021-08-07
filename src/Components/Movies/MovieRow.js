@@ -4,12 +4,10 @@ import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import { Link } from "react-router-dom";
 import SwiperCore, { Autoplay, Pagination } from "swiper/core";
-import useFetch from "../../hooks/use-fetch";
 
 SwiperCore.use([Autoplay, Pagination]);
 function MovieRow(props) {
-  const { title } = props;
-  const { upComing, baseImgURL, watchClickHandler } = useFetch();
+  const { title, upComing, baseImgURL, watchClickHandler } = props;
 
   return (
     <div className="trending__main">

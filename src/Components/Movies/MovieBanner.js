@@ -1,8 +1,7 @@
 import React from "react";
-import useFetch from "../../hooks/use-fetch";
 
-function MovieBanner() {
-  const { baseImgURL, latest } = useFetch();
+function MovieBanner(props) {
+  const { baseImgURL, latest } = props;
 
   return (
     <div className="movie_banner">

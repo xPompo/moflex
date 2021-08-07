@@ -5,13 +5,20 @@ import MovieRow from "../Components/Movies/MovieRow";
 import MovieGeners from "../Components/Movies/MovieGeners";
 import LatestNews from "../Components/Home/LatestNews";
 import Footer from "../Components/Footer/Footer";
+import useFetch from "../hooks/use-fetch";
 
-function MoviesPage({ fethchTrendingMovies }) {
+function MoviesPage() {
+  const { latest, upComing, baseImgURL, watchClickHandler } = useFetch();
   return (
     <div>
       <Header />
-      <MovieBanner fethchTrendingMovies={fethchTrendingMovies} />
-      <MovieRow title="New movies" />
+      <MovieBanner latest={latest} baseImgURL={baseImgURL} />
+      <MovieRow
+        title="New movies"
+        upComing={upComing}
+        baseImgURL={baseImgURL}
+        watchClickHandler={watchClickHandler}
+      />
       <MovieGeners />
       <LatestNews />
       <Footer />

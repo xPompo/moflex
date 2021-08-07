@@ -1,21 +1,93 @@
 import { useState, useEffect } from "react";
 import axios from "../axios/axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { indAction } from "../ReduxStore/store";
-import useRequests from "../axios/requests";
+// import useRequests from "../axios/requests";
 
-function useFetch(prev) {
-  const { requests } = useRequests();
+function useFetch() {
+  // const { requests } = useRequests();
   const dispatch = useDispatch();
-  const baseImgURL = "https://image.tmdb.org/t/p/original";
-  const API_KEY = "bc16f35e8e1e9a62fd4a90b95c9d86af";
+  const baseImgURL = "https://image.tmdb.org/t/p/original"; //==>img url<==//
+  const API_KEY = "bc16f35e8e1e9a62fd4a90b95c9d86af"; //==>API Key<==//
+  //------  get page and ID from redux store  ------//
+  const page = useSelector((state) => state.pageNumber);
+  const ID = useSelector((state) => state.movieID);
+  //------  fetch Movies data  ------//
   const [upComing, setUpComing] = useState([]);
   const [trending, setTrending] = useState([]);
   const [popular, setPopular] = useState([]);
   const [latest, setLatest] = useState([]);
+  const [related, setRelated] = useState([]);
+  //------  search title list data  ------//
   const [title, setTitle] = useState([]);
+  //------  page count in pagination   ------//
   const [count, setCount] = useState(1);
+  //------  disable button in pagination   ------//
   const [isDisabled, setIsDisabled] = useState(false);
+  //------  fetch MoviesDetails text  ------//
+  const [titleMovieDetails, setTitleMovieDetails] = useState("");
+  const [overview, setOverview] = useState("");
+  const [date, setDate] = useState("");
+  const [vote, setVote] = useState("");
+  const [storeMovieImages, setStoreMovieImages] = useState([]);
+  //------ store ID    ------//
+  const [storeID, setStoreID] = useState(null);
+  //------  requests data  ------//
+  const requests = {
+    fetchTrending: `/trending/all/day?api_key=${API_KEY}&language=en-US`,
+    fetchTopratedMovies: `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
+    fetchTopratedMoviesPage2: `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
+    fetchTopratedTVShows: `/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
+    fetchLatestMovies: `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`,
+    fetchPopularMovies: `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`,
+    fetchUpComingMovies: `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${page}`,
+    fetchSearch: `/search/movie?api_key=${API_KEY}&language=en-US&query=a&page=${page}&include_adult=false`,
+    fetchRelated: `/movie/${storeID}/similar?api_key=${API_KEY}&language=en-US&page=${page}`,
+    fetchMovieImages: `/movie/${storeID}/images?api_key=${API_KEY}&language=en-US&include_image_language=en`,
+    fetchMovieDetails: `/movie/${storeID}?api_key=${API_KEY}&language=en-US`,
+  };
+  //---- Onreload MoviesDetails data no lose  ----//
+  useEffect(() => {
+    const localID = localStorage.getItem("ID");
+    return setStoreID(localID);
+  }, []);
+  //---- id useEffect Function MoviesDetails ----//
+  useEffect(() => {
+    if (ID !== null) {
+      localStorage.setItem("ID", JSON.stringify(ID));
+      return setStoreID(ID);
+    }
+  }, [ID]);
+  //---- fetch Images MoviesDetails  ----//
+  useEffect(() => {
+    if (storeID !== null) {
+      axios(requests.fetchMovieImages)
+        .then((res) => {
+          setStoreMovieImages(res.data.backdrops);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [storeID, requests.fetchMovieImages]);
+
+  //---- fetch Details MoviesDetails ----//
+  useEffect(() => {
+    if (storeID !== null) {
+      axios(requests.fetchMovieDetails).then((res) => {
+        setTitleMovieDetails(res.data.original_title);
+        setOverview(res.data.overview);
+        setDate(res.data.release_date);
+        setVote(res.data.vote_average);
+      });
+    }
+  }, [storeID, requests.fetchMovieDetails]);
+  //----------------------------------------------------//
+
+  //---- Related Movies  ----//
+  useEffect(() => {
+    if (storeID !== null) {
+      axios(requests.fetchRelated).then((res) => setRelated(res.data.results));
+    }
+  }, [storeID, requests.fetchRelated]);
 
   //---- upComing  ----//
   useEffect(() => {
@@ -43,7 +115,7 @@ function useFetch(prev) {
     });
   }, [requests.fetchLatestMovies]);
 
-  //---- titles  ----//
+  //---- search list titles  ----//
   useEffect(() => {
     axios(requests.fetchTrending).then((res) => {
       return setTitle(
@@ -60,7 +132,7 @@ function useFetch(prev) {
     console.log(id);
   };
 
-  //----  pageHandler pagaination  ----//
+  //----  onClick get page Change pagaination  ----//
 
   const pageHandler = (prev) => {
     if (count > 1 && prev) setCount((prevState) => prevState - 1);
@@ -82,7 +154,7 @@ function useFetch(prev) {
     latest,
     trending,
     baseImgURL,
-
+    related,
     title,
     id: title.id,
     titleName: title.titleName,
@@ -90,6 +162,12 @@ function useFetch(prev) {
     pageHandler,
     isDisabled,
     count,
+    storeID,
+    storeMovieImages,
+    titleMovieDetails,
+    overview,
+    date,
+    vote,
   };
 }
 

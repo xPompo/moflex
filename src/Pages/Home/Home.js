@@ -10,8 +10,10 @@ import SmallBanner from "../../Components/Home/SmallBanner";
 import LatestNews from "../../Components/Home/LatestNews";
 import Footer from "../../Components/Footer/Footer";
 import MovieRow from "../../Components/Movies/MovieRow";
+import useFetch from "../../hooks/use-fetch";
 
 function Home() {
+  const { trending, baseImgURL, watchClickHandler } = useFetch();
   const [isSignUpPage, setSignUpPage] = useState(false);
   const [isSignInPage, setSignInPage] = useState(false);
 
@@ -39,7 +41,12 @@ function Home() {
       <Header SignIn={signInHandler} />
       <Banner />
       <Nav signInHandler={signInHandler} />
-      <MovieRow title="Up Coming Movies" />
+      <MovieRow
+        title="Up Coming Movies"
+        upComing={trending}
+        baseImgURL={baseImgURL}
+        watchClickHandler={watchClickHandler}
+      />
       <Service />
       <TopratedMovies />
       <SmallBanner />
