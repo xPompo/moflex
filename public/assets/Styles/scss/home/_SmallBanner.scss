@@ -1,9 +1,10 @@
 .home__small_banner {
+  background-color: $white;
   position: relative;
   padding: 5em 0;
   .small__banner_bg {
     position: absolute;
-    z-index: -1;
+
     top: 0;
     left: 0;
     width: 100%;
@@ -17,6 +18,7 @@
   //---  text  ----//
   .small_banner__text {
     color: $black;
+    z-index: 1;
     //--- subtittle  ----//
     .small_banner__subtittle {
       color: $main;

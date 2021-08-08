@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "../axios/axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector, useStore } from "react-redux";
 import { indAction } from "../ReduxStore/store";
 // import useRequests from "../axios/requests";
 
@@ -30,6 +30,9 @@ function useFetch() {
   const [date, setDate] = useState("");
   const [vote, setVote] = useState("");
   const [storeMovieImages, setStoreMovieImages] = useState([]);
+  //----  video Trailer  ----//
+  const [videoData, setVideoData] = useState([]);
+  const [videoEnable, setVideoEnable] = useState(false);
   //------ store ID    ------//
   const [storeID, setStoreID] = useState(null);
   //------  requests data  ------//
@@ -45,6 +48,7 @@ function useFetch() {
     fetchRelated: `/movie/${storeID}/similar?api_key=${API_KEY}&language=en-US&page=${page}`,
     fetchMovieImages: `/movie/${storeID}/images?api_key=${API_KEY}&language=en-US&include_image_language=en`,
     fetchMovieDetails: `/movie/${storeID}?api_key=${API_KEY}&language=en-US`,
+    fetchTrailerMovie: `/movie/${storeID}/videos?api_key=${API_KEY}&language=en-US`,
   };
   //---- Onreload MoviesDetails data no lose  ----//
   useEffect(() => {
@@ -67,7 +71,7 @@ function useFetch() {
         })
         .catch((err) => console.log(err));
     }
-  }, [storeID, requests.fetchMovieImages]);
+  }, [requests.fetchMovieImages]);
 
   //---- fetch Details MoviesDetails ----//
   useEffect(() => {
@@ -79,7 +83,7 @@ function useFetch() {
         setVote(res.data.vote_average);
       });
     }
-  }, [storeID, requests.fetchMovieDetails]);
+  }, [requests.fetchMovieDetails]);
   //----------------------------------------------------//
 
   //---- Related Movies  ----//
@@ -87,7 +91,7 @@ function useFetch() {
     if (storeID !== null) {
       axios(requests.fetchRelated).then((res) => setRelated(res.data.results));
     }
-  }, [storeID, requests.fetchRelated]);
+  }, [requests.fetchRelated]);
 
   //---- upComing  ----//
   useEffect(() => {
@@ -132,6 +136,26 @@ function useFetch() {
     console.log(id);
   };
 
+  //---- fetch Video trailer movie ----//
+  useEffect(() => {
+    if (storeID !== null) {
+      axios(requests.fetchTrailerMovie).then((res) => {
+        return setVideoData(res.data.results[0]);
+      });
+    }
+  }, [requests.fetchTrailerMovie]);
+
+  //----  onClick get Trailer Vidoe  ----//
+  const playTrailerVideoHandler = () => {
+    dispatch(indAction.getVideoKey(videoData.key));
+    setVideoEnable(true);
+  };
+
+  //----  onClick close Trailer Vidoe  ----//
+  const closeVideoHandler = () => {
+    setVideoEnable(false);
+  };
+
   //----  onClick get page Change pagaination  ----//
 
   const pageHandler = (prev) => {
@@ -168,6 +192,10 @@ function useFetch() {
     overview,
     date,
     vote,
+    playTrailerVideoHandler,
+    closeVideoHandler,
+    videoData,
+    videoEnable,
   };
 }
 

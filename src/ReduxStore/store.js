@@ -1,6 +1,6 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const init = { movieID: null, pageNumber: 1 };
+const init = { movieID: null, pageNumber: 1, videoKey: "" };
 const indSlice = createSlice({
   name: "index",
   initialState: init,
@@ -10,6 +10,9 @@ const indSlice = createSlice({
     },
     getPage(state, action) {
       state.pageNumber = action.payload;
+    },
+    getVideoKey(state, action) {
+      state.videoKey = action.payload;
     },
   },
 });

@@ -31,7 +31,8 @@ function Home() {
     setSignUpPage(false);
   };
   return (
-    <div>
+    <div className="home">
+      <div className="main__bg"></div>
       {isSignUpPage && (
         <SignupPage signInHandler={signInHandler} SignOut={Outhandler} />
       )}

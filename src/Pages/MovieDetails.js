@@ -3,6 +3,7 @@ import Nav from "../Components/Home/Nav";
 import useFetch from "../hooks/use-fetch";
 import MovieDetailsBody from "../Components/movieDetails/MovieDetailsBody";
 import MovieRow from "../Components/Movies/MovieRow";
+import Footer from "../Components/Footer/Footer";
 
 function MovieDetails() {
   const {
@@ -26,7 +27,8 @@ function MovieDetails() {
   }, [storeID]);
 
   return (
-    <>
+    <div className="movieDetails__page">
+      <div className="main__bg"></div>
       <Nav />
       <MovieDetailsBody
         baseImgURL={baseImgURL}
@@ -42,7 +44,8 @@ function MovieDetails() {
         baseImgURL={baseImgURL}
         watchClickHandler={watchClickHandler}
       />
-    </>
+      <Footer />
+    </div>
   );
 }
 

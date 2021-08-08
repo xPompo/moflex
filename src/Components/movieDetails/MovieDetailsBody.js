@@ -1,51 +1,51 @@
 import React from "react";
-import * as RiIcons from "react-icons/ri";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-import SwiperCore, { Autoplay, Pagination } from "swiper/core";
+import SwiperCore, { Autoplay } from "swiper/core";
+import VideoTrailer from "./VideoTrailer";
+import useFetch from "../../hooks/use-fetch";
 
-SwiperCore.use([Autoplay, Pagination]);
+SwiperCore.use([Autoplay]);
 
 function MovieDetailsBody(props) {
+  const { playTrailerVideoHandler, closeVideoHandler, videoEnable } =
+    useFetch();
+
   return (
     <div className="movieDetails__bg">
       <div className="container">
-        <Link to="/Home" className="movieDetails__back">
-          <button className="btn__main_0">
-            <RiIcons.RiArrowLeftSLine />
-          </button>
-        </Link>
         <div className="row mb-4">
-          <div className="col-md-8 col-12">
+          <div className=" col-12">
             <Swiper
               autoplay={{
                 delay: 2500,
                 disableOnInteraction: false,
               }}
-              speed={800}
-              slidesPerView={1}
-              spaceBetween={10}
-              pagination={{
-                dynamicBullets: true,
-              }}
+              initialSlide={1}
+              speed={900}
+              centeredSlides={true}
+              centeredSlidesBounds={true}
+              slidesPerView={2}
+              spaceBetween={-200}
               className="mySwiper_2"
             >
               {props.storeMovieImages.map((item, index) => {
                 return (
                   <SwiperSlide key={index}>
-                    <img
-                      className="movieDetails__poster"
-                      src={`${props.baseImgURL}${item?.file_path} `}
-                      alt={`imageSlider num + ${index}`}
-                    />
+                    {({ isActive }) => (
+                      <img
+                        className="movieDetails__poster"
+                        src={`${props.baseImgURL}${item?.file_path} `}
+                        alt={`imageSlider num + ${index}`}
+                      />
+                    )}
                   </SwiperSlide>
                 );
               })}
             </Swiper>
           </div>
-          <div className="col-md-4 col-12 movieDetails__wrapper">
+          <div className=" col-12 movieDetails__wrapper">
             <h1 className="movieDetails__tittle">{props.title}</h1>
             <p className="movieDetails__subtittle">{props.overview}</p>
             <div className="row movieDetails__data__rate">
@@ -56,11 +56,18 @@ function MovieDetailsBody(props) {
               </p>
             </div>
           </div>
+          <div className="col-auto p-0">
+            <button
+              onClick={playTrailerVideoHandler}
+              className="col btn__main_0  m-0"
+            >
+              +Watch Trailer
+            </button>
+          </div>
+          {videoEnable && (
+            <VideoTrailer closeVideoHandler={closeVideoHandler} />
+          )}
         </div>
-
-        <Link to="/home" className="row subscribe__now">
-          <button className="col btn__main_0">Subscribe Now</button>
-        </Link>
       </div>
     </div>
   );

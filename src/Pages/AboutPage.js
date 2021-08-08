@@ -9,6 +9,7 @@ import Nav from "../Components/Home/Nav";
 function AboutPage() {
   return (
     <div className="about__page">
+      <div className="main__bg"></div>
       <Nav />
       <BannerAbout />
       <OurStories />
