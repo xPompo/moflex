@@ -13,7 +13,7 @@ function VideoTrailer({ closeVideoHandler }) {
         controls
         width={1024}
         height={640}
-        url={`https://www.youtube.com/watch?v=${key}`}
+        url={`https://www.youtube.com/watch?v=${key ? key : "ysz5S6PUM-U"}`}
       />
     </>
   );

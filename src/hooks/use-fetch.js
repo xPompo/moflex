@@ -147,7 +147,9 @@ function useFetch() {
 
   //----  onClick get Trailer Vidoe  ----//
   const playTrailerVideoHandler = () => {
-    dispatch(indAction.getVideoKey(videoData.key));
+    if (videoData?.key !== undefined) {
+      dispatch(indAction.getVideoKey(videoData?.key));
+    }
     setVideoEnable(true);
   };
 

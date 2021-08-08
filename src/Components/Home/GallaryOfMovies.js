@@ -3,8 +3,15 @@ import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
 import useFetch from "../../hooks/use-fetch";
 
-function GallaryOfMovies({ poster, name, date, count, baseImgURL, id }) {
-  const { watchClickHandler } = useFetch();
+function GallaryOfMovies({
+  watchClickHandler,
+  poster,
+  name,
+  date,
+  count,
+  baseImgURL,
+  id,
+}) {
   return (
     <div className="gallary__poster mt-4 col-lg-3 col-md-4 col-sm-6 col-12 ">
       <Link to="/movieDetails">

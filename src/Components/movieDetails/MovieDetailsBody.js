@@ -2,11 +2,8 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
-import SwiperCore, { Autoplay } from "swiper/core";
 import VideoTrailer from "./VideoTrailer";
 import useFetch from "../../hooks/use-fetch";
-
-SwiperCore.use([Autoplay]);
 
 function MovieDetailsBody(props) {
   const { playTrailerVideoHandler, closeVideoHandler, videoEnable } =
@@ -18,12 +15,7 @@ function MovieDetailsBody(props) {
         <div className="row mb-4">
           <div className=" col-12">
             <Swiper
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
               initialSlide={1}
-              speed={900}
               centeredSlides={true}
               centeredSlidesBounds={true}
               slidesPerView={2}

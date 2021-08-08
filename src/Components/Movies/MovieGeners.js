@@ -5,7 +5,7 @@ import Pagination from "./Pagination";
 import useFetch from "../../hooks/use-fetch";
 
 function MovieGeners() {
-  const { popular, baseImgURL } = useFetch();
+  const { popular, baseImgURL, watchClickHandler } = useFetch();
 
   return (
     <div className="top__rated_movies">
@@ -27,6 +27,7 @@ function MovieGeners() {
                   count={item?.vote_count}
                   id={item?.id}
                   baseImgURL={baseImgURL}
+                  watchClickHandler={watchClickHandler}
                 />
               );
             }
