@@ -3,7 +3,7 @@ import GallaryOfMovies from "./GallaryOfMovies";
 import useFetch from "../../hooks/use-fetch";
 
 function TopratedMovies() {
-  const { colorHandler, trending, baseImgURL } = useFetch();
+  const { colorHandler, trending, baseImgURL, watchClickHandler } = useFetch();
 
   return (
     <div className="top__rated_movies">
@@ -25,6 +25,7 @@ function TopratedMovies() {
                   id={item?.id}
                   baseImgURL={baseImgURL}
                   colorHandler={colorHandler}
+                  watchClickHandler={watchClickHandler}
                 />
               );
             }

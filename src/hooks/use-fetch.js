@@ -68,24 +68,26 @@ function useFetch() {
 
   //---- fetch Images MoviesDetails  ----//
   useEffect(() => {
-    if (storeID !== null) {
+    if (storeID) {
       axios(requests.fetchMovieImages)
         .then((res) => {
           setStoreMovieImages(res.data.backdrops);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => console.log(err + "  error man"));
     }
   }, [requests.fetchMovieImages, storeID]);
 
   //---- fetch Details MoviesDetails ----//
   useEffect(() => {
     if (storeID !== null) {
-      axios(requests.fetchMovieDetails).then((res) => {
-        setTitleMovieDetails(res.data.original_title);
-        setOverview(res.data.overview);
-        setDate(res.data.release_date);
-        setVote(res.data.vote_average);
-      });
+      axios(requests.fetchMovieDetails)
+        .then((res) => {
+          setTitleMovieDetails(res.data.original_title);
+          setOverview(res.data.overview);
+          setDate(res.data.release_date);
+          setVote(res.data.vote_average);
+        })
+        .catch((err) => console.log(err));
     }
   }, [requests.fetchMovieDetails, storeID]);
   //----------------------------------------------------//
@@ -93,46 +95,67 @@ function useFetch() {
   //---- Related Movies  ----//
   useEffect(() => {
     if (storeID !== null) {
-      axios(requests.fetchRelated).then((res) => setRelated(res.data.results));
+      axios(requests.fetchRelated)
+        .then((res) => setRelated(res.data.results))
+        .catch((err) => console.log(err));
     }
   }, [requests.fetchRelated, storeID]);
 
   //---- upComing  ----//
   useEffect(() => {
-    axios(requests.fetchUpComingMovies).then((res) => {
-      return setUpComing(res.data.results);
-    });
+    axios(requests.fetchUpComingMovies)
+      .then((res) => {
+        return setUpComing(res.data.results);
+      })
+      .catch((err) => console.log(err));
   }, [requests.fetchUpComingMovies]);
-  //---- Trending  ----//
+
+  //---- Trending  and search list ----//
   useEffect(() => {
-    axios(requests.fetchTrending).then((res) => {
-      return setTrending(res.data.results);
-    });
+    axios(requests.fetchTrending)
+      .then((res) => {
+        return (
+          setTrending(res.data.results),
+          setTitle(
+            res.data.results.map((el) => {
+              return { id: el?.id, titleName: el?.original_title };
+            })
+          )
+        );
+      })
+      .catch((err) => console.log(err));
   }, [requests.fetchTrending]);
 
   //---- popular  ----//
   useEffect(() => {
-    axios(requests.fetchPopularMovies).then((res) => {
-      return setPopular(res.data.results);
-    });
+    axios(requests.fetchPopularMovies)
+      .then((res) => {
+        return setPopular(res.data.results);
+      })
+      .catch((err) => console.log(err));
   }, [requests.fetchPopularMovies]);
+
   //---- latest  ----//
   useEffect(() => {
-    axios(requests.fetchLatestMovies).then((res) => {
-      return setLatest(res.data.results);
-    });
+    axios(requests.fetchLatestMovies)
+      .then((res) => {
+        return setLatest(res.data.results);
+      })
+      .catch((err) => console.log(err));
   }, [requests.fetchLatestMovies]);
 
   //---- search list titles  ----//
-  useEffect(() => {
-    axios(requests.fetchTrending).then((res) => {
-      return setTitle(
-        res.data.results.map((el) => {
-          return { id: el.id, titleName: el.original_title };
-        })
-      );
-    });
-  }, [requests.fetchTrending]);
+  // useEffect(() => {
+  //   axios(requests.fetchTrending)
+  //     .then((res) => {
+  //       return setTitle(
+  //         res.data.results.map((el) => {
+  //           return { id: el.id, titleName: el.original_title };
+  //         })
+  //       );
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [requests.fetchTrending]);
 
   //----  onClick get My ID  ----//
   const watchClickHandler = (id) => {
@@ -143,9 +166,11 @@ function useFetch() {
   //---- fetch Video trailer movie ----//
   useEffect(() => {
     if (storeID !== null) {
-      axios(requests.fetchTrailerMovie).then((res) => {
-        return setVideoData(res.data.results[0]);
-      });
+      axios(requests.fetchTrailerMovie)
+        .then((res) => {
+          return setVideoData(res.data.results[0]);
+        })
+        .catch((err) => console.log(err));
     }
   }, [requests.fetchTrailerMovie, storeID]);
 
