@@ -29,7 +29,7 @@ function Footer({ baseImgURL, trending }) {
                       />
                     </Link>
                   );
-                }
+                } else return false;
               })}
             </div>
           </div>

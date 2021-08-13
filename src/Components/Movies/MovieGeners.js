@@ -42,7 +42,7 @@ function MovieGeners({
                   colorHandler={colorHandler}
                 />
               );
-            }
+            } else return false;
           })}
         </div>
         <Pagination

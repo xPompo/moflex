@@ -20,7 +20,7 @@ function Service({ popular, baseImgURL }) {
                       />
                     </div>
                   );
-                }
+                } else return false;
               })}
             </div>
           </div>

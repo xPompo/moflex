@@ -30,7 +30,7 @@ function TopratedMovies({
                   watchClickHandler={watchClickHandler}
                 />
               );
-            }
+            } else return false;
           })}
         </div>
       </div>

@@ -122,17 +122,14 @@ function useFetch() {
   useEffect(() => {
     axios(fetchTrending)
       .then((res) => {
-        return (
-          setTrending(res.data.results),
-          setTitle(
-            res.data.results.map((el) => {
-              return { id: el?.id, titleName: el?.original_title };
-            })
-          )
+        setTrending(res.data.results);
+        setTitle(
+          res.data.results.map((el) => {
+            return { id: el?.id, titleName: el?.original_title };
+          })
         );
       })
       .catch((err) => console.log(err));
-    console.log("hoeloooooooooooooooooooooooooooooo");
   }, [fetchTrending]);
 
   //---- popular  ----//
@@ -142,6 +139,7 @@ function useFetch() {
         return setPopular(res.data.results);
       })
       .catch((err) => console.log(err));
+    console.log("hoeloooooooooooooooooooooooooooooo");
   }, [fetchPopularMovies]);
 
   //---- latest  ----//

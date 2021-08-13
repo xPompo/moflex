@@ -15,7 +15,7 @@ function Search({ title, watchClickHandler }) {
         el?.titleName.toLowerCase().includes(filterSearch.toLowerCase())
       ) {
         return true;
-      }
+      } else return false;
     });
     setFiltered(filterdData);
   }, [filterSearch, title]);
