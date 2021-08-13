@@ -1,13 +1,17 @@
 import React from "react";
 import GallaryOfMovies from "../Home/GallaryOfMovies";
 import Pagination from "./Pagination";
-
-import useFetch from "../../hooks/use-fetch";
 import Search from "../Search/Search";
 
-function MovieGeners() {
-  const { colorHandler, popular, baseImgURL, watchClickHandler } = useFetch();
-
+function MovieGeners({
+  colorHandler,
+  popular,
+  baseImgURL,
+  watchClickHandler,
+  pageHandler,
+  isDisabled,
+  count,
+}) {
   return (
     <div className="top__rated_movies">
       <div className="container">
@@ -41,7 +45,11 @@ function MovieGeners() {
             }
           })}
         </div>
-        <Pagination />
+        <Pagination
+          pageHandler={pageHandler}
+          isDisabled={isDisabled}
+          count={count}
+        />
       </div>
     </div>
   );

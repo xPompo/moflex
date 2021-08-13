@@ -1,9 +1,4 @@
-import React from "react";
-import useFetch from "../../hooks/use-fetch";
-
-function Pagination() {
-  const { pageHandler, isDisabled, count } = useFetch();
-
+function Pagination({ pageHandler, isDisabled, count }) {
   return (
     <div className="row justify-content-center align-items-center movie__pagination">
       <button

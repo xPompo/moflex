@@ -14,7 +14,14 @@ import useFetch from "../../hooks/use-fetch";
 import { gsap } from "gsap";
 
 function Home() {
-  const { trending, baseImgURL, watchClickHandler } = useFetch();
+  const {
+    trending,
+    popular,
+    baseImgURL,
+    title,
+    watchClickHandler,
+    colorHandler,
+  } = useFetch();
   const [isSignUpPage, setSignUpPage] = useState(false);
   const [isSignInPage, setSignInPage] = useState(false);
 
@@ -48,8 +55,12 @@ function Home() {
       {isSignInPage && (
         <SignInPage signupHandler={signupHandler} SignOut={Outhandler} />
       )}
-      <Header SignIn={signInHandler} />
-      <Banner />
+      <Header
+        SignIn={signInHandler}
+        title={title}
+        watchClickHandler={watchClickHandler}
+      />
+      <Banner baseImgURL={baseImgURL} trending={trending} />
       <Nav signInHandler={signInHandler} />
       <MovieRow
         title="Up Coming Movies"
@@ -57,11 +68,16 @@ function Home() {
         baseImgURL={baseImgURL}
         watchClickHandler={watchClickHandler}
       />
-      <Service />
-      <TopratedMovies />
+      <Service baseImgURL={baseImgURL} popular={popular} />
+      <TopratedMovies
+        baseImgURL={baseImgURL}
+        trending={trending}
+        watchClickHandler={watchClickHandler}
+        colorHandler={colorHandler}
+      />
       <SmallBanner />
       <LatestNews />
-      <Footer />
+      <Footer baseImgURL={baseImgURL} trending={trending} />
     </div>
   );
 }

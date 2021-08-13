@@ -1,10 +1,12 @@
 import React from "react";
 import GallaryOfMovies from "./GallaryOfMovies";
-import useFetch from "../../hooks/use-fetch";
 
-function TopratedMovies() {
-  const { colorHandler, trending, baseImgURL, watchClickHandler } = useFetch();
-
+function TopratedMovies({
+  trending,
+  baseImgURL,
+  colorHandler,
+  watchClickHandler,
+}) {
   return (
     <div className="top__rated_movies">
       <div className="container">

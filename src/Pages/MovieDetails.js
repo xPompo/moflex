@@ -7,6 +7,7 @@ import Footer from "../Components/Footer/Footer";
 
 function MovieDetails() {
   const {
+    trending,
     storeMovieImages,
     titleMovieDetails,
     overview,
@@ -15,7 +16,10 @@ function MovieDetails() {
     storeID,
     related,
     baseImgURL,
+    videoEnable,
     watchClickHandler,
+    closeVideoHandler,
+    playTrailerVideoHandler,
   } = useFetch();
   //---- Onreload data no lose  ----//
   useEffect(() => {
@@ -32,19 +36,22 @@ function MovieDetails() {
       <Nav />
       <MovieDetailsBody
         baseImgURL={baseImgURL}
-        title={titleMovieDetails}
+        titleMovieDetails={titleMovieDetails}
         overview={overview}
         date={date}
         vote={vote}
         storeMovieImages={storeMovieImages}
-      ></MovieDetailsBody>
+        videoEnable={videoEnable}
+        closeVideoHandler={closeVideoHandler}
+        playTrailerVideoHandler={playTrailerVideoHandler}
+      />
       <MovieRow
         title="Related Movies"
         upComing={related}
         baseImgURL={baseImgURL}
         watchClickHandler={watchClickHandler}
       />
-      <Footer />
+      <Footer baseImgURL={baseImgURL} trending={trending} />
     </div>
   );
 }

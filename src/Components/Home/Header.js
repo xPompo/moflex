@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function Header({ SignIn }) {
+function Header({ SignIn, title, watchClickHandler }) {
   const like = useSelector((state) => state.likes);
 
   const [locpath, setLocpath] = useState(true);
@@ -39,7 +39,10 @@ function Header({ SignIn }) {
                 {locpath && (
                   <>
                     <div className="col-4">
-                      <Search />
+                      <Search
+                        title={title}
+                        watchClickHandler={watchClickHandler}
+                      />
                     </div>
                     <button onClick={SignIn} className="btn__main_0 col-auto">
                       Sign In

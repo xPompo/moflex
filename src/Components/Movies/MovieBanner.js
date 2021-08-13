@@ -1,5 +1,3 @@
-import React from "react";
-
 function MovieBanner(props) {
   const { baseImgURL, latest } = props;
 

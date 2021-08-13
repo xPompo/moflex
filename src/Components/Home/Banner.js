@@ -4,12 +4,9 @@ import "swiper/swiper.min.css";
 import "swiper/components/effect-fade/effect-fade.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import SwiperCore, { Autoplay, EffectFade, Navigation } from "swiper/core";
-import useFetch from "../../hooks/use-fetch";
 
 SwiperCore.use([EffectFade, Navigation, Autoplay]);
-function Banner() {
-  const { trending, baseImgURL } = useFetch();
-
+function Banner({ trending, baseImgURL }) {
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };

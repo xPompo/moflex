@@ -1,9 +1,7 @@
 import React from "react";
 import * as RiIcons from "react-icons/ri";
-import useFetch from "../../hooks/use-fetch";
 
-function Service() {
-  const { popular, baseImgURL } = useFetch();
+function Service({ popular, baseImgURL }) {
   return (
     <div className="home__service">
       <div className="container">

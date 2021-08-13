@@ -3,10 +3,8 @@ import * as BiIcons from "react-icons/bi";
 import { Form, Field, Formik } from "formik";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
-import useFetch from "../../hooks/use-fetch";
 
-function Search() {
-  const { title, watchClickHandler } = useFetch();
+function Search({ title, watchClickHandler }) {
   const [filterSearch, setFilterSearch] = useState("");
   const [filtered, setFiltered] = useState([]);
 

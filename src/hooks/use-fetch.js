@@ -41,7 +41,6 @@ function useFetch() {
   const requests = {
     fetchTrending: `/trending/all/day?api_key=${API_KEY}&language=en-US`,
     fetchTopratedMovies: `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
-    fetchTopratedMoviesPage2: `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
     fetchTopratedTVShows: `/tv/top_rated?api_key=${API_KEY}&language=en-US&page=${page}`,
     fetchLatestMovies: `/movie/now_playing?api_key=${API_KEY}&language=en-US&page=${page}`,
     fetchPopularMovies: `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`,
@@ -52,6 +51,15 @@ function useFetch() {
     fetchMovieDetails: `/movie/${storeID}?api_key=${API_KEY}&language=en-US`,
     fetchTrailerMovie: `/movie/${storeID}/videos?api_key=${API_KEY}&language=en-US`,
   };
+
+  const {
+    fetchTrending,
+    fetchTrailerMovie,
+    fetchRelated,
+    fetchUpComingMovies,
+    fetchPopularMovies,
+    fetchLatestMovies,
+  } = requests;
   //---- Onreload MoviesDetails data no lose  ----//
   useEffect(() => {
     const localID = localStorage.getItem("ID");
@@ -95,24 +103,24 @@ function useFetch() {
   //---- Related Movies  ----//
   useEffect(() => {
     if (storeID !== null) {
-      axios(requests.fetchRelated)
+      axios(fetchRelated)
         .then((res) => setRelated(res.data.results))
         .catch((err) => console.log(err));
     }
-  }, [requests.fetchRelated, storeID]);
+  }, [fetchRelated, storeID]);
 
   //---- upComing  ----//
   useEffect(() => {
-    axios(requests.fetchUpComingMovies)
+    axios(fetchUpComingMovies)
       .then((res) => {
         return setUpComing(res.data.results);
       })
       .catch((err) => console.log(err));
-  }, [requests.fetchUpComingMovies]);
+  }, [fetchUpComingMovies]);
 
   //---- Trending  and search list ----//
   useEffect(() => {
-    axios(requests.fetchTrending)
+    axios(fetchTrending)
       .then((res) => {
         return (
           setTrending(res.data.results),
@@ -124,38 +132,26 @@ function useFetch() {
         );
       })
       .catch((err) => console.log(err));
-  }, [requests.fetchTrending]);
+    console.log("hoeloooooooooooooooooooooooooooooo");
+  }, [fetchTrending]);
 
   //---- popular  ----//
   useEffect(() => {
-    axios(requests.fetchPopularMovies)
+    axios(fetchPopularMovies)
       .then((res) => {
         return setPopular(res.data.results);
       })
       .catch((err) => console.log(err));
-  }, [requests.fetchPopularMovies]);
+  }, [fetchPopularMovies]);
 
   //---- latest  ----//
   useEffect(() => {
-    axios(requests.fetchLatestMovies)
+    axios(fetchLatestMovies)
       .then((res) => {
         return setLatest(res.data.results);
       })
       .catch((err) => console.log(err));
-  }, [requests.fetchLatestMovies]);
-
-  //---- search list titles  ----//
-  // useEffect(() => {
-  //   axios(requests.fetchTrending)
-  //     .then((res) => {
-  //       return setTitle(
-  //         res.data.results.map((el) => {
-  //           return { id: el.id, titleName: el.original_title };
-  //         })
-  //       );
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [requests.fetchTrending]);
+  }, [fetchLatestMovies]);
 
   //----  onClick get My ID  ----//
   const watchClickHandler = (id) => {
@@ -166,13 +162,13 @@ function useFetch() {
   //---- fetch Video trailer movie ----//
   useEffect(() => {
     if (storeID !== null) {
-      axios(requests.fetchTrailerMovie)
+      axios(fetchTrailerMovie)
         .then((res) => {
           return setVideoData(res.data.results[0]);
         })
         .catch((err) => console.log(err));
     }
-  }, [requests.fetchTrailerMovie, storeID]);
+  }, [fetchTrailerMovie, storeID]);
 
   //----  onClick get Trailer Vidoe  ----//
   const playTrailerVideoHandler = () => {

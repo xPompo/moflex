@@ -6,7 +6,6 @@ import { useLocation } from "react-router";
 import AboutPage from "./Pages/AboutPage";
 import MoviesPage from "./Pages/MoviesPage";
 import LoadAnimation from "./Components/Animation/LoadAnimation";
-// import MyListPage from "./Pages/MyListPage";
 
 function App() {
   const [loc, setLoc] = useState();
@@ -36,9 +35,6 @@ function App() {
         <Route path="/Movies">
           <MoviesPage />
         </Route>
-        {/* <Route path="/list">
-        <MyListPage />
-      </Route> */}
       </Switch>
     </>
   );

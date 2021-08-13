@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Nav from "../Home/Nav";
 import SocialLinks from "../SocialLinks/SocialLinks";
-import useFetch from "../../hooks/use-fetch";
 
-function Footer() {
-  const { baseImgURL, trending } = useFetch();
+function Footer({ baseImgURL, trending }) {
   return (
     <div className="footer">
       <div className="container">

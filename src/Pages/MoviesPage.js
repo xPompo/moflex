@@ -7,7 +7,18 @@ import Footer from "../Components/Footer/Footer";
 import useFetch from "../hooks/use-fetch";
 
 function MoviesPage() {
-  const { latest, upComing, baseImgURL, watchClickHandler } = useFetch();
+  const {
+    baseImgURL,
+    latest,
+    trending,
+    upComing,
+    popular,
+    isDisabled,
+    count,
+    colorHandler,
+    watchClickHandler,
+    pageHandler,
+  } = useFetch();
   return (
     <div>
       <MovieBanner latest={latest} baseImgURL={baseImgURL} />
@@ -17,9 +28,17 @@ function MoviesPage() {
         baseImgURL={baseImgURL}
         watchClickHandler={watchClickHandler}
       />
-      <MovieGeners />
+      <MovieGeners
+        colorHandler={colorHandler}
+        popular={popular}
+        baseImgURL={baseImgURL}
+        watchClickHandler={watchClickHandler}
+        pageHandler={pageHandler}
+        isDisabled={isDisabled}
+        count={count}
+      />
       <LatestNews />
-      <Footer />
+      <Footer baseImgURL={baseImgURL} trending={trending} />
     </div>
   );
 }
