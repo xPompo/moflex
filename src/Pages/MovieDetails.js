@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Nav from "../Components/Home/Nav";
 import useFetch from "../hooks/use-fetch";
 import MovieDetailsBody from "../Components/movieDetails/MovieDetailsBody";
@@ -13,7 +12,6 @@ function MovieDetails() {
     overview,
     date,
     vote,
-    storeID,
     related,
     baseImgURL,
     videoEnable,
@@ -21,14 +19,6 @@ function MovieDetails() {
     closeVideoHandler,
     playTrailerVideoHandler,
   } = useFetch();
-  //---- Onreload data no lose  ----//
-  useEffect(() => {
-    return storeID;
-  }, []);
-  //---- id useEffect Function ----//
-  useEffect(() => {
-    return storeID;
-  }, [storeID]);
 
   return (
     <div className="movieDetails__page">
