@@ -40,7 +40,11 @@ function Testmonials() {
       <div className="container">
         <div className="row align-items-center ">
           <div className="col-2">
-            <img src={commaState ? commaFill : comma} className="notaion_up" />
+            <img
+              src={commaState ? commaFill : comma}
+              className="notaion_up"
+              alt="commaLeft"
+            />
           </div>
           <Swiper
             autoplay={{
@@ -69,6 +73,7 @@ function Testmonials() {
             <img
               src={commaState ? commaFill : comma}
               className="notaion_down"
+              alt="CommaRight"
             />
           </div>
         </div>

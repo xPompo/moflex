@@ -14,7 +14,7 @@ function MovieBanner(props) {
       />
       <div className="container">
         <div className=" row align-items-center mt-4">
-          <div className="col small_banner__text">
+          <div className="col text-center small_banner__text">
             <h1 className="small_banner__subtittle m-0">
               <p></p>Our Movies
               <p></p>

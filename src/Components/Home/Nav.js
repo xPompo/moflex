@@ -1,31 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import SubscribeButtons from "./SubscribeButtons";
 
 function Nav({ signInHandler }) {
-  const [isActive, setIsActive] = useState(false);
   const NAV_DATA = [
     { name: "Home", path: "/Home" },
     { name: "About", path: "/About" },
     { name: "Movies", path: "/Movies" },
-    { name: "Tv Show", path: "/tvShow" },
+    // { name: "My list", path: "/list" },
   ];
-  const activeHandler = () => {
-    setIsActive(true);
-  };
 
   return (
     <div className="main__nav">
       <div className="container ">
         <div className="row nav__list">
           <ul className=" col-md-5 col-12 mb-md-0 mb-4 mb-0">
-            <div className="row ">
+            <div className="row  ">
               {NAV_DATA.map((item, index) => (
-                <li
-                  onClick={activeHandler}
-                  className="nav__list_item col  "
-                  key={index}
-                >
+                <li className="nav__list_item col text-center  " key={index}>
                   <NavLink
                     className="nav__link"
                     activeClassName="active"

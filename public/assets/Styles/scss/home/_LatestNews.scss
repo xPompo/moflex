@@ -24,21 +24,19 @@
     z-index: -2;
   }
   //----  title  ----//
-  .latest_news_title {
-    font-weight: bold;
+  .tittle__small {
     text-transform: capitalize;
-    font-size: 2.5rem;
     color: $black;
   }
   //----  subtitile  ----//
-  .latest_news_subtitle {
+  .subtittle__small {
     color: $black;
-    font-size: 1rem;
-    letter-spacing: 0.1em;
+    text-transform: capitalize;
   }
   //----  Input  ----//
   .latest_news_input {
     border: none;
+    outline: none;
     background-color: rgba($white, 1);
     box-shadow: 0 0.5em 0.5em 0 rgba($blackBlack, 0.15);
   }

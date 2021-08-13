@@ -1,0 +1,25 @@
+.animation__load {
+  position: fixed;
+  z-index: 99;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  .first {
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $main;
+    width: 100%;
+    height: 50%;
+  }
+  .second {
+    opacity: 1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $main;
+    width: 100%;
+    height: 50%;
+  }
+}

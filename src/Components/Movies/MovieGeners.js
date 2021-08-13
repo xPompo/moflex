@@ -3,16 +3,23 @@ import GallaryOfMovies from "../Home/GallaryOfMovies";
 import Pagination from "./Pagination";
 
 import useFetch from "../../hooks/use-fetch";
+import Search from "../Search/Search";
 
 function MovieGeners() {
-  const { popular, baseImgURL, watchClickHandler } = useFetch();
+  const { colorHandler, popular, baseImgURL, watchClickHandler } = useFetch();
 
   return (
     <div className="top__rated_movies">
       <div className="container">
-        <div className="row mt-4">
-          <p className="subtittle__small">Live Streaming</p>
-          <h1 className="tittle__small">Top Rated Movies</h1>
+        <div className="row my-4 align-items-center">
+          <div className="col-6">
+            {" "}
+            <p className="subtittle__small">Live Streaming</p>
+            <h1 className="tittle__small">Movies List</h1>
+          </div>
+          <div className="col-6">
+            <Search />
+          </div>
         </div>
 
         <div className="row ">
@@ -28,6 +35,7 @@ function MovieGeners() {
                   id={item?.id}
                   baseImgURL={baseImgURL}
                   watchClickHandler={watchClickHandler}
+                  colorHandler={colorHandler}
                 />
               );
             }

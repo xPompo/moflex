@@ -3,7 +3,7 @@ import GallaryOfMovies from "./GallaryOfMovies";
 import useFetch from "../../hooks/use-fetch";
 
 function TopratedMovies() {
-  const { popular, baseImgURL } = useFetch();
+  const { colorHandler, trending, baseImgURL } = useFetch();
 
   return (
     <div className="top__rated_movies">
@@ -13,7 +13,7 @@ function TopratedMovies() {
           <h1 className="tittle__small">Top Rated Movies</h1>
         </div>
         <div className="row">
-          {popular.map((item, index) => {
+          {trending.map((item, index) => {
             if (index < 8) {
               return (
                 <GallaryOfMovies
@@ -24,6 +24,7 @@ function TopratedMovies() {
                   count={item?.vote_count}
                   id={item?.id}
                   baseImgURL={baseImgURL}
+                  colorHandler={colorHandler}
                 />
               );
             }

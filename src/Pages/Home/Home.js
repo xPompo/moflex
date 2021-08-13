@@ -11,15 +11,24 @@ import LatestNews from "../../Components/Home/LatestNews";
 import Footer from "../../Components/Footer/Footer";
 import MovieRow from "../../Components/Movies/MovieRow";
 import useFetch from "../../hooks/use-fetch";
+import { gsap } from "gsap";
 
 function Home() {
   const { trending, baseImgURL, watchClickHandler } = useFetch();
   const [isSignUpPage, setSignUpPage] = useState(false);
   const [isSignInPage, setSignInPage] = useState(false);
 
-  const Outhandler = () => {
-    setSignInPage(false);
-    setSignUpPage(false);
+  const Outhandler = (signin) => {
+    gsap.to(signin.current, {
+      duration: 0.8,
+      ease: "power3.inOut",
+      css: { opacity: 0, yPercent: -100, display: "none" },
+    });
+
+    setTimeout(() => {
+      setSignUpPage(false);
+      setSignInPage(false);
+    }, 800);
   };
 
   const signupHandler = () => {

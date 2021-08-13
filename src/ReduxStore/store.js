@@ -1,6 +1,11 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const init = { movieID: null, pageNumber: 1, videoKey: "" };
+const init = {
+  movieID: null,
+  pageNumber: 1,
+  videoKey: "",
+  likes: 0,
+};
 const indSlice = createSlice({
   name: "index",
   initialState: init,
@@ -13,6 +18,9 @@ const indSlice = createSlice({
     },
     getVideoKey(state, action) {
       state.videoKey = action.payload;
+    },
+    getLikes(state, action) {
+      state.likes = action.payload;
     },
   },
 });

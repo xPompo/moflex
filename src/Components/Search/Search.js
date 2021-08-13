@@ -20,7 +20,7 @@ function Search() {
       }
     });
     setFiltered(filterdData);
-  }, [filterSearch]);
+  }, [filterSearch, title]);
 
   const validate = Yup.object().shape({
     Search: Yup.string()
@@ -55,31 +55,30 @@ function Search() {
             <button className="searchbar__btn" type="submit">
               <BiIcons.BiSearchAlt />
             </button>
+            <div className="search__list">
+              {filterSearch.length !== 0 &&
+                filtered.map((item, index) => {
+                  return (
+                    <Link
+                      className="search__list_link"
+                      key={index}
+                      to="/movieDetails"
+                    >
+                      <div
+                        onClick={() => {
+                          watchClickHandler(item?.id);
+                        }}
+                        className="search__item"
+                      >
+                        {item?.titleName}
+                      </div>
+                    </Link>
+                  );
+                })}
+            </div>
           </Form>
         )}
       </Formik>
-
-      <div className="search__list">
-        {filterSearch.length !== 0 &&
-          filtered.map((item, index) => {
-            return (
-              <Link
-                className="search__list_link"
-                key={index}
-                to="/movieDetails"
-              >
-                <div
-                  onClick={() => {
-                    watchClickHandler(item?.id);
-                  }}
-                  className="search__item"
-                >
-                  {item?.titleName}
-                </div>
-              </Link>
-            );
-          })}
-      </div>
     </div>
   );
 }

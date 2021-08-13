@@ -17,8 +17,8 @@ function LatestNews() {
       <div className="container">
         <div className="row align-items-center">
           <div className="col-lg-6 col-12 text-center mb-lg-0 mb-4">
-            <h3 className="latest_news_title">trial start first 30 days.</h3>
-            <h6 className="latest_news_subtitle">
+            <h3 className="tittle__small">trial start first 30 days.</h3>
+            <h6 className="subtittle__small">
               Enter your email to create your membership.
             </h6>
           </div>
@@ -31,18 +31,21 @@ function LatestNews() {
           >
             {({ errors, touched }) => (
               <div className="col-lg-6 col-12">
-                <Form className="row">
+                <Form className="row px-4">
                   <Field
-                    className="col latest_news_input"
+                    className="col-md-8 col-12 py-3 latest_news_input"
                     name="Email"
                     placeholder="Your Email"
                   />
-                  {errors.Email && touched.Email ? (
-                    <div className="Err">{errors.Email}</div>
-                  ) : null}
-                  <button type="submit" className="col-auto btn__main_0">
+                  <button
+                    type="submit"
+                    className="col-md-4 col mx-auto   mt-2 mt-md-0  btn__main_0"
+                  >
                     Subscribe
                   </button>
+                  {errors.Email && touched.Email ? (
+                    <div className="Err col-12">{errors.Email}</div>
+                  ) : null}
                 </Form>
               </div>
             )}

@@ -1,6 +1,5 @@
 import React from "react";
 import MovieBanner from "../Components/Movies/MovieBanner";
-import Header from "../Components/Home/Header";
 import MovieRow from "../Components/Movies/MovieRow";
 import MovieGeners from "../Components/Movies/MovieGeners";
 import LatestNews from "../Components/Home/LatestNews";
@@ -11,7 +10,6 @@ function MoviesPage() {
   const { latest, upComing, baseImgURL, watchClickHandler } = useFetch();
   return (
     <div>
-      <Header />
       <MovieBanner latest={latest} baseImgURL={baseImgURL} />
       <MovieRow
         title="New movies"

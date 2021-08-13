@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import * as AiIcons from "react-icons/ai";
 import { Link } from "react-router-dom";
-import useFetch from "../../hooks/use-fetch";
 
 function GallaryOfMovies({
   watchClickHandler,
@@ -11,7 +10,10 @@ function GallaryOfMovies({
   count,
   baseImgURL,
   id,
+  colorHandler,
 }) {
+  const colorRef = useRef();
+
   return (
     <div className="gallary__poster mt-4 col-lg-3 col-md-4 col-sm-6 col-12 ">
       <Link to="/movieDetails">
@@ -35,7 +37,7 @@ function GallaryOfMovies({
         </h6>
         <h6 className=" col-auto gallary__count">
           {count}
-          <span>
+          <span onClick={() => colorHandler(colorRef, id)} ref={colorRef}>
             <AiIcons.AiFillHeart />
           </span>
         </h6>

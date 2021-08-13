@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "../axios/axios";
-import { useDispatch, useSelector, useStore } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { indAction } from "../ReduxStore/store";
 // import useRequests from "../axios/requests";
 
@@ -33,6 +33,8 @@ function useFetch() {
   //----  video Trailer  ----//
   const [videoData, setVideoData] = useState([]);
   const [videoEnable, setVideoEnable] = useState(false);
+  //---- add likes to movie  ----//
+  const [like, setLike] = useState(0);
   //------ store ID    ------//
   const [storeID, setStoreID] = useState(null);
   //------  requests data  ------//
@@ -53,6 +55,7 @@ function useFetch() {
   //---- Onreload MoviesDetails data no lose  ----//
   useEffect(() => {
     const localID = localStorage.getItem("ID");
+
     return setStoreID(localID);
   }, []);
   //---- id useEffect Function MoviesDetails ----//
@@ -62,6 +65,7 @@ function useFetch() {
       return setStoreID(ID);
     }
   }, [ID]);
+
   //---- fetch Images MoviesDetails  ----//
   useEffect(() => {
     if (storeID !== null) {
@@ -71,7 +75,7 @@ function useFetch() {
         })
         .catch((err) => console.log(err));
     }
-  }, [requests.fetchMovieImages]);
+  }, [requests.fetchMovieImages, storeID]);
 
   //---- fetch Details MoviesDetails ----//
   useEffect(() => {
@@ -83,7 +87,7 @@ function useFetch() {
         setVote(res.data.vote_average);
       });
     }
-  }, [requests.fetchMovieDetails]);
+  }, [requests.fetchMovieDetails, storeID]);
   //----------------------------------------------------//
 
   //---- Related Movies  ----//
@@ -91,7 +95,7 @@ function useFetch() {
     if (storeID !== null) {
       axios(requests.fetchRelated).then((res) => setRelated(res.data.results));
     }
-  }, [requests.fetchRelated]);
+  }, [requests.fetchRelated, storeID]);
 
   //---- upComing  ----//
   useEffect(() => {
@@ -143,7 +147,7 @@ function useFetch() {
         return setVideoData(res.data.results[0]);
       });
     }
-  }, [requests.fetchTrailerMovie]);
+  }, [requests.fetchTrailerMovie, storeID]);
 
   //----  onClick get Trailer Vidoe  ----//
   const playTrailerVideoHandler = () => {
@@ -152,11 +156,27 @@ function useFetch() {
     }
     setVideoEnable(true);
   };
-
   //----  onClick close Trailer Vidoe  ----//
   const closeVideoHandler = () => {
     setVideoEnable(false);
   };
+
+  //----  onClick toggle heart icon  ----//
+  const colorHandler = (ref, id) => {
+    if (ref.current.style.color === "red") {
+      ref.current.style.color = "";
+      localStorage.setItem("HEART", JSON.stringify(ref.current.style.color));
+      setLike((prev) => prev - 1);
+      dispatch(indAction.getID(id));
+    } else if (ref.current.style.color !== "red") {
+      ref.current.style.color = "red";
+      setLike((prev) => prev + 1);
+      dispatch(indAction.getID(id));
+    }
+  };
+  useEffect(() => {
+    dispatch(indAction.getLikes(like));
+  }, [like, dispatch]);
 
   //----  onClick get page Change pagaination  ----//
 
@@ -171,7 +191,7 @@ function useFetch() {
   };
   useEffect(() => {
     dispatch(indAction.getPage(count));
-  }, [count]);
+  }, [count, dispatch]);
 
   return {
     upComing,
@@ -198,6 +218,7 @@ function useFetch() {
     closeVideoHandler,
     videoData,
     videoEnable,
+    colorHandler,
   };
 }
 

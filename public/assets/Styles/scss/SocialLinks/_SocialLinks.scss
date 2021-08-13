@@ -21,3 +21,10 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .social__list {
+    justify-content: center !important;
+    padding: 0 !important;
+  }
+}

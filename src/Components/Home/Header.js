@@ -3,8 +3,11 @@ import * as HiIcons from "react-icons/hi";
 import Search from "../Search/Search";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header({ SignIn }) {
+  const like = useSelector((state) => state.likes);
+
   const [locpath, setLocpath] = useState(true);
   const location = useLocation();
 
@@ -22,14 +25,20 @@ function Header({ SignIn }) {
           <div className="row">
             <div className="col-auto">
               <Link to="/">
-                <h1 className="logo__brand">moflex</h1>
+                <h1 className="tittle__small">moflex</h1>
               </Link>
             </div>
             <div className="btn__favIcon__main col ">
-              <div className="row">
+              <div className="row justify-content-end w-100">
+                <Link to="/" className="col-auto fav-icon-link">
+                  <div className="fav-icon">
+                    <HiIcons.HiHeart />
+                    {like !== 0 && <span>{like}</span>}
+                  </div>
+                </Link>
                 {locpath && (
                   <>
-                    <div className="col">
+                    <div className="col-4">
                       <Search />
                     </div>
                     <button onClick={SignIn} className="btn__main_0 col-auto">

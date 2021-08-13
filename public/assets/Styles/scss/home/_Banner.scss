@@ -103,3 +103,25 @@
     transform: scale(0.4) translateX(200%) rotateY(180deg);
   }
 }
+
+@media screen and (max-width: 500px) {
+  .banner__main {
+    .tittle {
+      font-size: 2rem !important;
+    }
+    .overview {
+      font-size: 1rem !important;
+    }
+    .date__rate {
+      .release_date {
+        font-size: 1rem;
+      }
+      .vote_average {
+        font-size: 0.8rem;
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}

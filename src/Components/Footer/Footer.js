@@ -10,14 +10,14 @@ function Footer() {
     <div className="footer">
       <div className="container">
         <div className="row align-items-center ">
-          <div className="col">
-            <h1 className="logo__brand">Moflex</h1>
+          <div className="col-12">
+            <h1 className="tittle__small">Moflex</h1>
           </div>
           <Nav />
         </div>
         <hr className="line"></hr>
         <div className="row social__links_email my-4 ">
-          <div className="col-4 me-auto">
+          <div className="col-md-4 col-12 me-auto">
             <h6 className="footer__insta_head mb-4">Instagram:</h6>
             <div className="row footer__insta">
               {trending.map((item, index) => {
@@ -35,15 +35,15 @@ function Footer() {
               })}
             </div>
           </div>
-          <div className="col-4  px-0">
+          <div className="col-md-4 col-12  px-0">
             <SocialLinks />
             <Link to="/">
-              <h6 className="footer__email d-flex justify-content-end me-4">
+              <h6 className="footer__email d-flex justify-content-md-end justify-content-center me-md-4 me-0">
                 <span>Email:</span> Pompo@Moflex.com
               </h6>
             </Link>
             <Link to="/">
-              <h6 className="footer__phone d-flex justify-content-end me-4">
+              <h6 className="footer__phone d-flex justify-content-md-end justify-content-center me-md-4 me-0">
                 <span>Phone:</span> +(12) 957-624-153
               </h6>
             </Link>

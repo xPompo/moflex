@@ -43,7 +43,7 @@ function InputForm() {
               <div className="Err">{errors.Password}</div>
             ) : null}
             <button className="btn__main_0 col-12" type="submit">
-              LOGIN NOW
+              LOGIN
             </button>
           </Form>
         )}

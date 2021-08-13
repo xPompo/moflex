@@ -19,6 +19,7 @@
       font-weight: normal;
 
       span {
+        cursor: pointer;
         color: $main;
         font-weight: bold;
         margin-left: 1em;
@@ -65,6 +66,14 @@
         color: $white;
         background-color: rgb(52, 65, 236);
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .signin__main {
+    .container {
+      width: 100% !important;
     }
   }
 }

@@ -11,10 +11,10 @@ function SmallBanner() {
             <h1 className="small_banner__subtittle m-0">
               <p></p>ONLINE STREAMING
             </h1>
-            <h1 className="small_banner__tittle">
+            <h1 className="tittle__small">
               Download Your Shows Watch Offline.
             </h1>
-            <p className="small_banner__description">
+            <p className="subtittle__small">
               Lorem ipsum dolor sit amet, consecetur adipiscing elseddo eiusmod
               tempor.There are many variations of passages of lorem Ipsum
               available, but the majority have suffered alteration in some
@@ -30,7 +30,7 @@ function SmallBanner() {
                 <h1 className="small_banner__small_tittle">
                   Enjoy on Your TV.
                 </h1>
-                <p className="small_banner__small_subtittle">
+                <p className="subtittle__small">
                   Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do
                   eiusmod tempor.
                 </p>
@@ -46,7 +46,7 @@ function SmallBanner() {
                 <h1 className="small_banner__small_tittle">
                   Watch Everywhere.
                 </h1>
-                <p className="small_banner__small_subtittle">
+                <p className="subtittle__small">
                   Lorem ipsum dolor sit amet, consecetur adipiscing elit, sed do
                   eiusmod tempor.
                 </p>
