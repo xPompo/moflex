@@ -1,8 +1,8 @@
 import Nav from "../Components/Home/Nav";
-import useFetch from "../hooks/use-fetch";
 import MovieDetailsBody from "../Components/movieDetails/MovieDetailsBody";
 import MovieRow from "../Components/Movies/MovieRow";
 import Footer from "../Components/Footer/Footer";
+import useFetch from "../hooks/use-fetch";
 
 function MovieDetails() {
   const {
