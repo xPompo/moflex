@@ -44,7 +44,7 @@ function MovieDetailsBody(props) {
               })}
             </Swiper>
           </div>
-          <div className=" col-12 movieDetails__wrapper">
+          <div className=" col-12 movieDetails__wrapper p-4">
             <h1 className="movieDetails__tittle">{titleMovieDetails}</h1>
             <p className="movieDetails__subtittle">{overview}</p>
             <div className="row movieDetails__data__rate">
@@ -55,10 +55,10 @@ function MovieDetailsBody(props) {
               </p>
             </div>
           </div>
-          <div className="col-auto p-0">
+          <div className="col-md-auto col-12 d-flex justify-content-center px-4">
             <button
               onClick={playTrailerVideoHandler}
-              className="col btn__main_0  m-0"
+              className="btn__main_0  m-0"
             >
               +Watch Trailer
             </button>

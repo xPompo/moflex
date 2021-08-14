@@ -9,7 +9,7 @@ function Footer({ baseImgURL, trending }) {
       <div className="container">
         <div className="row align-items-center ">
           <div className="col-12">
-            <h1 className="tittle__small">Moflex</h1>
+            <h1 className="tittle__small px-4">Moflex</h1>
           </div>
           <Nav />
         </div>

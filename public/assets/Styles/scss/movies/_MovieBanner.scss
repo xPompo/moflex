@@ -51,3 +51,19 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .movie_banner {
+    .small_banner__subtittle {
+      font-size: 1rem !important;
+      p {
+        width: 1rem !important;
+      }
+    }
+    //--- tittle  ----//
+    .small_banner__tittle {
+      font-size: 2rem !important;
+      width: 90% !important;
+    }
+  }
+}

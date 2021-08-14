@@ -16,12 +16,10 @@
     filter: brightness(0.7);
   }
   .swiper-slide-active {
-    box-shadow: 0 0 1rem 0.5rem rgba($main, 0.5);
+    box-shadow: 0 0 1rem 0.5rem rgba($blackBlack, 0.5);
     filter: brightness(1);
     z-index: 1;
     height: 75vh;
-    border-left: 0.2rem solid $main;
-    border-right: 0.2rem solid $main;
   }
   //---- main Head Poster ----//
   .movieDetails__poster {
@@ -29,11 +27,10 @@
     height: 100%;
     background-size: cover;
     object-fit: cover;
-    border-radius: 0.2rem;
+    border-radius: 0.3rem;
+    text-align: center;
   }
-  .movieDetails__wrapper {
-    padding: 2em 0;
-  }
+
   //---- main Head Title  ----//
   .movieDetails__tittle {
     font-size: 2.5rem;
@@ -78,8 +75,22 @@
       margin-bottom: 2em;
     }
   }
-  //---- Subscribe Button ----//
-  .subscribe__now {
-    margin-top: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .movieDetails__tittle {
+    font-size: 1.8rem !important;
+  }
+  .movieDetails__subtittle {
+    font-size: 1rem !important;
+  }
+  .movieDetails__date {
+    font-size: 1rem !important;
+  }
+  .movieDetails__rate {
+    font-size: 1rem !important;
+    span {
+      font-size: 1.3rem !important;
+    }
   }
 }

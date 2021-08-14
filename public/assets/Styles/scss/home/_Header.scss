@@ -54,6 +54,7 @@
 
   //----  menu__icon part  ----//
   .navbar__menu_icon {
+    cursor: pointer;
     position: absolute;
     font-size: 1.6rem;
     color: white;
@@ -61,5 +62,19 @@
     left: 90%;
     transform: translate(0, -10%);
     display: none;
+  }
+}
+@media screen and (max-width: 768px) {
+  .Header__main {
+    .btn__main_0,
+    .searchbar {
+      display: none !important;
+    }
+    .navbar__menu_icon {
+      display: block !important;
+    }
+    .fav-icon {
+      margin-right: 2em;
+    }
   }
 }

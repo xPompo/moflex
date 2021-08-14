@@ -6,7 +6,7 @@ function MovieBanner(props) {
       <img
         className="movie_banner_bg"
         src={`${baseImgURL}${
-          latest[Math.floor(Math.random() * (0 + 19) - 0)]?.backdrop_path
+          latest[Math.floor(Math.random() * (0 + 15) - 0)]?.backdrop_path
         }`}
         alt="bannerImg"
       />

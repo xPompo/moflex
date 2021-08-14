@@ -72,8 +72,10 @@
 
 @media screen and (max-width: 768px) {
   .signin__main {
+    padding: 1em !important;
+    width: 90% !important;
     .container {
-      width: 100% !important;
+      width: 90% !important;
     }
   }
 }

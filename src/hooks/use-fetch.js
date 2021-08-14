@@ -139,7 +139,6 @@ function useFetch() {
         return setPopular(res.data.results);
       })
       .catch((err) => console.log(err));
-    console.log("hoeloooooooooooooooooooooooooooooo");
   }, [fetchPopularMovies]);
 
   //---- latest  ----//

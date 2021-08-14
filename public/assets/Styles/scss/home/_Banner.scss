@@ -104,13 +104,14 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
   .banner__main {
     .tittle {
       font-size: 2rem !important;
     }
     .overview {
       font-size: 1rem !important;
+      width: 85% !important;
     }
     .date__rate {
       .release_date {

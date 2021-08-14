@@ -38,7 +38,7 @@ function Header({ SignIn, title, watchClickHandler }) {
                 </Link>
                 {locpath && (
                   <>
-                    <div className="col-4">
+                    <div className="col-4 searchbar">
                       <Search
                         title={title}
                         watchClickHandler={watchClickHandler}
@@ -52,7 +52,7 @@ function Header({ SignIn, title, watchClickHandler }) {
               </div>
             </div>
           </div>
-          <div className="navbar__menu_icon">
+          <div onClick={SignIn} className="navbar__menu_icon">
             <HiIcons.HiMenuAlt3 />
           </div>
         </div>

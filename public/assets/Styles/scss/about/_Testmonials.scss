@@ -39,3 +39,17 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .testmonials {
+    .testmonials__subttitle {
+      font-size: 1rem !important;
+    }
+    .testmonials__ttitle {
+      display: none !important;
+      // font-size: 0.8rem !important;
+      // width: 70% !important;
+      // margin: 0 auto !important;
+    }
+  }
+}

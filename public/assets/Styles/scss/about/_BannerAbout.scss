@@ -20,14 +20,25 @@
     object-fit: cover;
     background-attachment: fixed;
   }
-  .about__banner_row_1 {
+
+  //----  tittle  -----//
+  .about__banner_title {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: $white;
+    font-size: 3rem;
+    font-weight: bold;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .about__banner {
     .about__banner_title {
-      text-align: center;
-      color: $white;
-      font-size: 2.5rem;
-      font-weight: bold;
-      width: 65%;
+      font-size: 1.8rem !important;
+
+      width: 90% !important;
     }
   }
 }

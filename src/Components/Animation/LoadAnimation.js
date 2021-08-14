@@ -1,8 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
 
 function LoadAnimation() {
   const first = useRef();
@@ -10,16 +7,16 @@ function LoadAnimation() {
   useEffect(() => {
     gsap.to(first.current, {
       duration: 1.2,
-      delay: 0.5,
-      css: { height: 0 },
+      delay: 0.4,
+      css: { height: 0, display: "none" },
       ease: "power3.inOut",
     });
   }, [first]);
   useEffect(() => {
     gsap.to(second.current, {
       duration: 1.2,
-      delay: 0.5,
-      css: { height: 0 },
+      delay: 0.4,
+      css: { height: 0, display: "none" },
       ease: "power3.inOut",
     });
   }, [second]);

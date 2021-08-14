@@ -5,6 +5,7 @@
     justify-content: space-between;
   }
   .step__image_main {
+    //----  img  -----//
     .step__img {
       width: 100%;
       height: 45vh;
@@ -27,11 +28,13 @@
       color: transparent;
       -webkit-text-stroke: 0.1rem $white;
     }
+    //----  tittle  -----//
     .step_title {
       font-weight: bold;
       font-size: 2rem;
       margin-bottom: 0.2em;
     }
+    //----  subtittle  -----//
     .step_subtitle {
       width: 70%;
       font-weight: normal;
@@ -40,10 +43,35 @@
       letter-spacing: 0.02em;
       margin-bottom: 2em;
     }
+    //----  btn  -----//
     .btn__main_0 {
       padding: 1em 2.5em;
       text-transform: capitalize;
       color: $black;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .step {
+    .step__img {
+      height: 30vh !important;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .step {
+    .step__img {
+      height: 30vh !important;
+    }
+    .step_title {
+      font-size: 1.5rem !important;
+      margin-top: 0.5em !important;
+    }
+    .step_subtitle {
+      width: 100% !important;
+      margin-bottom: 0.5em !important;
     }
   }
 }

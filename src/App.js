@@ -8,17 +8,19 @@ import MoviesPage from "./Pages/MoviesPage";
 import LoadAnimation from "./Components/Animation/LoadAnimation";
 
 function App() {
-  const [loc, setLoc] = useState();
   const [anim, setAnim] = useState(false);
   const location = useLocation();
   useEffect(() => {
-    setAnim(true);
     window.scrollTo(0, 0);
-    setTimeout(() => {
-      setLoc(location);
+    setAnim(true);
+
+    const timeOut = setTimeout(() => {
       setAnim(false);
-    }, 1200);
-  }, [location, loc]);
+    }, 1600);
+    return () => {
+      clearTimeout(timeOut);
+    };
+  }, [location]);
 
   return (
     <>

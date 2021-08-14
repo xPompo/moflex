@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import SignUpForm from "./SignUpForm";
 
-function Signup({ signInHandler }) {
+function Signup({ signInHandler, signin }) {
   return (
-    <div className="signUp__main">
+    <div ref={signin} className="signUp__main">
       <div className="container">
         <div className="row">
-          <h1 className=" col-auto mb-4 sign__toContinue">
+          <h1 className=" col-md-auto col-12 mb-4 sign__toContinue">
             Sign up to continue
           </h1>
           <h1 className=" col mb-4 you__member">
@@ -16,13 +16,22 @@ function Signup({ signInHandler }) {
           <h1 className="Register">Or Register with</h1>
         </div>
         <div className="row  btn_centered">
-          <Link className="col-4 social-link  px-0" to="/">
+          <Link
+            className="col-md-4 col-12 mt-2 mt-md-0 social-link  px-0"
+            to="/"
+          >
             <button className=" btn__main_0 google">google</button>
           </Link>
-          <Link className="col-4  social-link px-0" to="/">
+          <Link
+            className="col-md-4 col-12 mt-2 mt-md-0  social-link px-0"
+            to="/"
+          >
             <button className="btn__main_0 twitter">twiiter</button>
           </Link>
-          <Link className="col-4  social-link px-0" to="/">
+          <Link
+            className="col-md-4 col-12 mt-2 mt-md-0  social-link px-0"
+            to="/"
+          >
             <button className=" btn__main_0 facebook">facebook</button>
           </Link>
         </div>
