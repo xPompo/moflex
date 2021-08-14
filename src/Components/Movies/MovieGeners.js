@@ -11,6 +11,7 @@ function MovieGeners({
   pageHandler,
   isDisabled,
   count,
+  title,
 }) {
   return (
     <div className="top__rated_movies">
@@ -22,7 +23,7 @@ function MovieGeners({
             <h1 className="tittle__small">Movies List</h1>
           </div>
           <div className="col-6">
-            <Search />
+            <Search title={title} watchClickHandler={watchClickHandler} />
           </div>
         </div>
 
